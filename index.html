@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New England Gynecology Plus PLLC | Consulting & Care Delivery</title>
+  <meta name="description" content="New England Gynecology Plus PLLC — a physician-led organization advancing women's health through healthcare consulting, strategic advisory, and a planned OBGYN & primary care delivery platform launching 2027.">
+  <link rel="icon" href="favicon.png">
+  <style>
+    :root {
+      --black:      #111111;
+      --charcoal:   #1E1E1E;
+      --gold:       #B8860B;
+      --gold-light: #D4A830;
+      --gold-pale:  #FBF5E0;
+      --gold-mid:   #C9A030;
+      --navy:       #1B2E59;
+      --navy-mid:   #2D4475;
+      --navy-light: #778DA9;
+      --cream:      #FAF8F3;
+      --cream-dark: #F0EBE0;
+      --gray:       #5A5A5A;
+      --gray-lt:    #8A8A8A;
+      --white:      #FFFFFF;
+      --text-dark:  #111111;
+      --text-mid:   #444444;
+      --border:     #E5DDD0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--white);
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 16px;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 54px; width: auto; display: block;
+    }
+    .nav-logo-sub {
+      font-size: 0.62rem; font-weight: 700; color: var(--navy-mid);
+      text-transform: uppercase; letter-spacing: 2px; line-height: 1.5;
+      border-left: 2px solid var(--gold); padding-left: 14px;
+    }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links a {
+      display: block; padding: 0 1.1rem; height: 80px; line-height: 80px;
+      font-size: 0.8rem; font-weight: 600; text-decoration: none;
+      color: var(--gray); text-transform: uppercase; letter-spacing: 0.8px;
+      border-bottom: 3px solid transparent; margin-bottom: -3px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--black); border-bottom-color: var(--gold); }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--white) !important;
+      border-radius: 50px; padding: 0 1.5rem !important;
+      height: 42px !important; line-height: 42px !important;
+      margin: auto 0; border-bottom: none !important;
+      letter-spacing: 0.5px !important;
+      box-shadow: 0 2px 10px rgba(184,134,11,0.3);
+    }
+    .nav-cta:hover { background: var(--gold-mid) !important; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,134,11,0.4) !important; }
+    .nav-portal { background: transparent; color: var(--gray-lt) !important; border: 1.5px solid var(--border); border-radius: 50px; padding: 0 0.9rem !important; height: 34px !important; line-height: 32px !important; margin: auto 0 auto 0.5rem; font-size: 0.72rem !important; font-weight: 600 !important; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; border-bottom: 1.5px solid var(--border) !important; transition: border-color 0.2s, color 0.2s !important; }
+    .nav-portal:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
+
+    /* Dropdown nav */
+    .nav-links > li { position: relative; }
+    .nav-dropdown { position: absolute; top: calc(100% + 3px); left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 225px; background: var(--white); border-top: 2px solid var(--gold); border-radius: 0 0 12px 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); list-style: none; padding: 0.4rem 0; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; z-index: 2000; }
+    .nav-links > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown li { margin: 0; }
+    .nav-dropdown a { height: auto !important; line-height: 1.4 !important; padding: 0.55rem 1.2rem !important; font-size: 0.77rem !important; font-weight: 500 !important; color: var(--text-dark) !important; border-bottom: none !important; margin-bottom: 0 !important; letter-spacing: 0.2px !important; text-transform: none !important; }
+    .nav-dropdown a:hover { background: var(--gold-pale) !important; color: var(--gold) !important; }
+    .dd-div { height: 1px; background: var(--border); margin: 0.3rem 0; }
+
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--black); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 80px; left: 0; right: 0;
+      background: var(--white); border-bottom: 3px solid var(--gold);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999;
+      padding: 1.5rem 2rem; flex-direction: column; gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block; padding: 1rem 0; font-size: 1rem; font-weight: 600;
+      color: var(--text-dark); text-decoration: none; text-transform: uppercase;
+      letter-spacing: 1px; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .m-cta {
+      margin-top: 1rem; background: var(--gold); color: var(--white);
+      text-align: center; border-radius: 50px; padding: 0.85rem 2rem;
+      border-bottom: none !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(150deg, var(--black) 0%, #1a1200 50%, #0d0d0d 100%);
+      padding: 120px 2rem 100px;
+      position: relative; overflow: hidden;
+      min-height: 88vh; display: flex; align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; opacity: 0.5;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(184,134,11,0.08)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, rgba(184,134,11,0.04));
+      pointer-events: none;
+    }
+    .hero-content { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(184,134,11,0.12); border: 1px solid rgba(184,134,11,0.3);
+      color: rgba(212,168,48,0.9); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 7px 20px; border-radius: 50px; margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    .hero-tagline { font-size: 0.78rem; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(212,168,48,0.75); margin-bottom: 1.25rem; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.08; margin-bottom: 1.5rem;
+      letter-spacing: -1.5px;
+      max-width: 820px;
+    }
+    .hero h1 em { color: var(--gold-light); font-style: normal; }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      color: rgba(255,255,255,0.72);
+      max-width: 680px; line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .hero-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.75rem; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .pill-active {
+      background: rgba(184,134,11,0.18); border: 1px solid rgba(184,134,11,0.45);
+      color: var(--gold-light);
+    }
+    .pill-soon {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.6);
+    }
+    .pill-soon span { font-size: 0.65rem; background: rgba(27,46,89,0.6); padding: 2px 9px; border-radius: 50px; color: var(--navy-light); margin-left: 4px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 15px 38px; border-radius: 50px; font-weight: 700; font-size: 0.92rem; text-decoration: none; transition: all 0.25s ease; letter-spacing: 0.3px; cursor: pointer; }
+    .btn-gold { background: var(--gold); color: var(--white); border: 2px solid var(--gold); }
+    .btn-gold:hover { background: var(--gold-mid); border-color: var(--gold-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,134,11,0.4); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.85); border: 2px solid rgba(255,255,255,0.25); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+    .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); }
+    .btn-outline:hover { background: var(--gold-pale); }
+
+    /* ─── SEGMENT STRIP ─── */
+    .segment-strip { background: var(--cream); border-bottom: 1px solid var(--border); }
+    .segment-strip-inner {
+      max-width: 1280px; margin: 0 auto; padding: 1.5rem 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .seg-card {
+      background: var(--white); border-radius: 14px; padding: 1.5rem 1.75rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06); border: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .seg-card:hover { box-shadow: 0 6px 26px rgba(184,134,11,0.14); transform: translateY(-2px); border-color: rgba(184,134,11,0.3); }
+    .seg-ico { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .seg-ico.c { background: linear-gradient(135deg, var(--gold), var(--gold-mid)); }
+    .seg-ico.d { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); }
+    .seg-card-text h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .seg-card-text p { font-size: 0.78rem; color: var(--gray); line-height: 1.4; }
+    .seg-badge { font-size: 0.62rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; margin-left: auto; white-space: nowrap; align-self: flex-start; flex-shrink: 0; }
+    .badge-active { background: #e8f5e9; color: #2e7d32; }
+    .badge-soon { background: #e3eaf7; color: var(--navy-mid); }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 96px 2rem; }
+    .section.alt { background: var(--cream); }
+    .section.dark { background: var(--black); color: var(--white); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-label { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .section-title { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800; color: var(--text-dark); line-height: 1.18; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
+    .section-title em { color: var(--gold); font-style: normal; }
+    .section.dark .section-title { color: var(--white); }
+    .divider { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin: 0.75rem 0 1.5rem; }
+    .lead { font-size: 1.05rem; color: var(--gray); max-width: 660px; line-height: 1.85; }
+
+    /* ─── ABOUT ─── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .about-text p { font-size: 0.98rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 1.1rem; }
+    .about-pillars { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pillar { background: var(--white); border-radius: 14px; padding: 1.5rem 1.75rem; border-left: 4px solid var(--gold); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .pillar.navy { border-left-color: var(--navy); }
+    .pillar h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.35rem; }
+    .pillar p { font-size: 0.84rem; color: var(--gray); line-height: 1.65; }
+
+    /* ─── SEGMENTS DEEP ─── */
+    .seg-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+    .seg-block { border-radius: 22px; overflow: hidden; box-shadow: 0 5px 28px rgba(0,0,0,0.1); }
+    .seg-block-head { padding: 2.25rem 2.5rem 2rem; }
+    .seg-block-head.gold-head { background: linear-gradient(135deg, #1a1200 0%, #2d2200 100%); }
+    .seg-block-head.navy-head { background: linear-gradient(135deg, #0e1e3e 0%, var(--navy) 100%); }
+    .seg-tag { font-size: 0.66rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 50px; display: inline-block; margin-bottom: 1.1rem; }
+    .seg-tag.g { background: rgba(184,134,11,0.2); color: var(--gold-light); border: 1px solid rgba(184,134,11,0.3); }
+    .seg-tag.n { background: rgba(119,141,169,0.15); color: #a8c8e8; border: 1px solid rgba(119,141,169,0.3); }
+    .seg-block-head h2 { font-size: 1.55rem; font-weight: 800; color: var(--white); margin-bottom: 0.6rem; }
+    .seg-block-head p { font-size: 0.88rem; color: rgba(255,255,255,0.68); line-height: 1.75; }
+    .seg-block-body { background: var(--white); padding: 2rem 2.5rem 2.5rem; }
+    .seg-sublabel { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 0.85rem; }
+    .seg-sublabel.n { color: var(--navy-mid); }
+    .seg-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.5rem; }
+    .seg-list li { font-size: 0.88rem; color: var(--text-mid); padding-left: 1.2rem; position: relative; }
+    .seg-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.72rem; top: 3px; }
+    .seg-list li.n::before { color: var(--navy); }
+    .cs-box {
+      background: linear-gradient(135deg, var(--navy) 0%, #0e1e3e 100%);
+      border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .cs-dot { width: 8px; height: 8px; background: var(--gold-light); border-radius: 50%; margin-top: 4px; flex-shrink: 0; animation: pulse 2.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+    .cs-box p { font-size: 0.8rem; color: rgba(255,255,255,0.82); line-height: 1.6; }
+    .cs-box strong { color: var(--gold-light); }
+    .seg-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.84rem; font-weight: 700; text-decoration: none; color: var(--gold); transition: gap 0.2s; border-bottom: 1px solid rgba(184,134,11,0.3); padding-bottom: 1px; }
+    .seg-link:hover { gap: 10px; color: var(--gold-mid); }
+    .seg-link.n { color: var(--navy); border-bottom-color: rgba(27,46,89,0.3); }
+    .seg-link.n:hover { color: var(--navy-mid); }
+
+    /* ─── LEADERSHIP PREVIEW ─── */
+    .leader-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+    .leader-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 3px 20px rgba(0,0,0,0.08); border: 1px solid var(--border); transition: box-shadow 0.25s, transform 0.25s; }
+    .leader-card:hover { box-shadow: 0 10px 36px rgba(184,134,11,0.15); transform: translateY(-5px); }
+    .leader-card-top { padding: 2rem 2rem 1.25rem; background: var(--cream); text-align: center; }
+    .avatar { width: 82px; height: 82px; border-radius: 50%; margin: 0 auto 1.1rem; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; font-weight: 800; color: var(--white); overflow: hidden; flex-shrink: 0; }
+    .av-gold { background: linear-gradient(135deg, var(--gold), var(--gold-mid)); }
+    .av-navy { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); }
+    .leader-card-top h3 { font-size: 1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .leader-card-top .cred { font-size: 0.76rem; color: var(--gold); font-weight: 700; }
+    .leader-card-body { padding: 1.25rem 2rem 1.75rem; }
+    .role-tags { display: flex; flex-direction: column; gap: 0.45rem; }
+    .role-tag { font-size: 0.74rem; padding: 4px 10px; border-radius: 6px; }
+    .role-gold { background: var(--gold-pale); color: var(--gold); font-weight: 600; }
+    .role-navy { background: #eaf0f8; color: var(--navy); font-weight: 600; }
+    .role-gray { background: var(--cream-dark); color: var(--gray); }
+    .leader-link { display: block; text-align: center; margin-top: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .leader-link:hover { color: var(--gold-mid); }
+    .leader-ghost { border: 2px dashed var(--border); background: var(--cream); box-shadow: none; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; text-align: center; min-height: 280px; }
+    .leader-ghost .plus { font-size: 2.5rem; color: var(--border); margin-bottom: 0.75rem; line-height: 1; }
+    .leader-ghost h3 { font-size: 0.9rem; color: var(--gray-lt); font-weight: 600; margin-bottom: 0.5rem; }
+    .leader-ghost p { font-size: 0.78rem; color: var(--gray-lt); line-height: 1.6; max-width: 200px; }
+
+    /* ─── VALUES ─── */
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .value-card { background: var(--white); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; border-top: 3px solid var(--gold); box-shadow: 0 2px 14px rgba(0,0,0,0.05); transition: box-shadow 0.2s, transform 0.2s; }
+    .value-card:hover { box-shadow: 0 6px 24px rgba(184,134,11,0.14); transform: translateY(-3px); }
+    .value-icon { font-size: 1.9rem; margin-bottom: 0.75rem; }
+    .value-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .value-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.65; }
+
+    /* ─── STATS ─── */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.5rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; }
+    .stat-box { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+    .stat-box:last-child { border-right: none; }
+    .stat-num { font-size: 2.8rem; font-weight: 800; color: var(--gold-light); margin-bottom: 0.4rem; line-height: 1; }
+    .stat-lbl { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip { background: linear-gradient(150deg, #1a1200 0%, #111111 100%); padding: 80px 2rem; text-align: center; }
+    .cta-strip h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; letter-spacing: -0.5px; }
+    .cta-strip h2 em { color: var(--gold-light); font-style: normal; }
+    .cta-strip p { font-size: 1.05rem; color: rgba(255,255,255,0.65); margin-bottom: 2.25rem; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--black); color: rgba(255,255,255,0.55); padding: 4rem 2rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand .f-logo { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.8; margin-bottom: 1.25rem; display: block; }
+    .footer-brand p { font-size: 0.8rem; line-height: 1.75; color: rgba(255,255,255,0.45); max-width: 300px; }
+    .footer-brand .f-note { font-size: 0.7rem; color: rgba(255,255,255,0.28); margin-top: 1rem; line-height: 1.6; }
+    .footer-col h5 { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 1.1rem; }
+    .footer-col a { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom { max-width: 1280px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); line-height: 1.6; max-width: 680px; }
+
+    /* ─── SCROLL ANCHOR COMPENSATION ─── */
+    [id] { scroll-margin-top: 90px; }
+
+    /* ─── ENTRANCE ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-box:nth-child(2) { border-right: none; }
+      .stat-box:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.08); }
+      .stat-box:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-portal { display: none !important; }
+      .segment-strip-inner { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .seg-blocks { grid-template-columns: 1fr; }
+      .leader-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+      .nav-logo-sub { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: 100svh; padding: 80px 1.25rem 60px; }
+      .section { padding: 64px 1.25rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-box { border-right: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .stat-box:first-child { border-top: none; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { text-align: center; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_nav.png" alt="New England Gynecology Plus PLLC">
+      <div class="nav-logo-sub">Plus PLLC<br>Consulting &amp; Care Delivery</div>
+    </a>
+    <ul class="nav-links">
+      <li>
+        <a href="services.html">Services</a>
+        <ul class="nav-dropdown">
+          <li><a href="services.html">Services Overview</a></li>
+          <li class="dd-div"></li>
+          <li><a href="consulting.html">Consulting &amp; Advisory</a></li>
+          <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li>
+          <li><a href="care-delivery.html#service-lines">Primary Care</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="consulting.html">Consulting</a>
+        <ul class="nav-dropdown">
+          <li><a href="consulting.html">Consulting Overview</a></li>
+          <li class="dd-div"></li>
+          <li><a href="consulting.html#convergence">Integration Advantage</a></li>
+          <li><a href="consulting.html#capabilities">Capabilities</a></li>
+          <li><a href="consulting.html#drug-development">Drug Development</a></li>
+          <li><a href="consulting.html#device-development">Device Development</a></li>
+          <li><a href="consulting.html#clients">Client Sectors</a></li>
+          <li><a href="consulting.html#engagements">Engagement Models</a></li>
+          <li><a href="consulting.html#speaking">Speaking &amp; Education</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="care-delivery.html">Care Delivery</a>
+        <ul class="nav-dropdown">
+          <li><a href="care-delivery.html">Care Delivery Overview</a></li>
+          <li class="dd-div"></li>
+          <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li>
+          <li><a href="care-delivery.html#service-lines">Primary Care</a></li>
+          <li><a href="care-delivery.html#philosophy">Clinical Philosophy</a></li>
+          <li><a href="care-delivery.html#notify">Interest Registration</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="team.html">Leadership</a>
+        <ul class="nav-dropdown">
+          <li><a href="team.html">Team Overview</a></li>
+          <li class="dd-div"></li>
+          <li><a href="team.html#belotte">Dr. Jimmy Belotte</a></li>
+          <li><a href="team.html#alexis">Dr. Mitchell Alexis</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#about">About</a>
+        <ul class="nav-dropdown">
+          <li><a href="#about">Company Overview</a></li>
+          <li class="dd-div"></li>
+          <li><a href="#segments">Our Segments</a></li>
+          <li><a href="#values">Mission &amp; Values</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </li>
+      <li><a href="#contact" class="nav-cta">Engage Now</a></li>
+    </ul>
+    <a href="https://github.com/jbelottemd-art/BRCAI" class="nav-portal" target="_blank" rel="noopener">🔒 BRCAI Portal</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="services.html">Services</a>
+  <a href="consulting.html">Consulting</a>
+  <a href="care-delivery.html">Care Delivery</a>
+  <a href="team.html">Leadership</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="m-cta">Engage Now</a>
+  <a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--gray-lt);border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem">🔒 BRCAI Portal</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">New England Gynecology Plus PLLC</div>
+    <h1>Advancing Women's Health<br><em>From Strategy to the Clinic.</em></h1>
+    <p class="hero-sub">A physician-led organization at the convergence of healthcare consulting and care delivery — bringing clinical expertise, financial rigor, and compassionate medicine to women's health across New England and beyond.</p>
+    <div class="hero-pills">
+      <span class="pill pill-active">⚡ Consulting — Now Active</span>
+      <span class="pill pill-soon">🏥 Care Delivery <span>Launching 2027</span></span>
+    </div>
+    <div class="hero-ctas">
+      <a href="consulting.html" class="btn btn-gold">Explore Consulting</a>
+      <a href="care-delivery.html" class="btn btn-ghost">Care Delivery Preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SEGMENT STRIP ─── -->
+<div class="segment-strip">
+  <div class="segment-strip-inner">
+    <a href="consulting.html" class="seg-card">
+      <div class="seg-ico c">📊</div>
+      <div class="seg-card-text">
+        <h3>Consulting &amp; Strategic Advisory</h3>
+        <p>Healthcare strategy, financial advisory, innovation, and organizational transformation — led by Dr. Jimmy Belotte.</p>
+      </div>
+      <span class="seg-badge badge-active">Active</span>
+    </a>
+    <a href="care-delivery.html" class="seg-card">
+      <div class="seg-ico d">🏥</div>
+      <div class="seg-card-text">
+        <h3>Care Delivery — OBGYN &amp; Primary Care</h3>
+        <p>Women's health, OBGYN, and primary care in structured development. Led by Dr. Belotte &amp; Dr. Alexis.</p>
+      </div>
+      <span class="seg-badge badge-soon">2027</span>
+    </a>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <span class="section-label">About NEG Plus PLLC</span>
+        <h2 class="section-title">A PLLC Built for the <em>Next Era</em> of Healthcare</h2>
+        <div class="divider"></div>
+        <p>New England Gynecology Plus PLLC is a physician-founded professional organization with a single, unifying mission: <strong>to expand access to preventative care and treatment, improve patient outcomes, and reduce cancer disparities in women's health.</strong></p>
+        <p>Our vision is to be a lifeline of hope — bringing healing, comfort, and transformation to the lives of women who need it most. We pursue that vision through a forward-thinking integrated model that unifies care delivery, education, research, advocacy, technology, and strategic investment.</p>
+        <p>Founded by Dr. Jimmy Belotte, NEG Plus PLLC operates across two segments: a <strong>nationally focused consulting practice</strong> active today, and a <strong>regionally anchored care delivery platform</strong> — led by Dr. Belotte and Dr. Mitchell Alexis — expected to launch in 2027.</p>
+        <div style="margin-top:2rem;">
+          <a href="team.html" class="btn btn-outline" style="font-size:0.88rem; padding:12px 28px;">Meet Our Leadership →</a>
+        </div>
+      </div>
+      <div class="about-pillars fade-up delay-2">
+        <div class="pillar">
+          <img src="https://newenglandgyn.com/wp-content/uploads/2025/09/Research.png" alt="Research & Development" style="height:52px;width:auto;margin-bottom:0.6rem;object-fit:contain">
+          <h4>Research &amp; Development</h4>
+          <p>Clinical trial diversity, women's health research, and innovation strategy — advancing the evidence base for diseases that disproportionately affect women.</p>
+        </div>
+        <div class="pillar">
+          <img src="https://newenglandgyn.com/wp-content/uploads/2025/09/Education.png" alt="Education & Training" style="height:52px;width:auto;margin-bottom:0.6rem;object-fit:contain">
+          <h4>Education &amp; Training</h4>
+          <p>Programs targeting patients, providers, and communities — expanding awareness of women's cancers, prevention, and access to evidence-based care.</p>
+        </div>
+        <div class="pillar">
+          <img src="https://newenglandgyn.com/wp-content/uploads/2025/09/Community.png" alt="Community Engagement" style="height:52px;width:auto;margin-bottom:0.6rem;object-fit:contain">
+          <h4>Community Engagement</h4>
+          <p>Partnerships and advocacy initiatives focused on underserved populations — closing the equity gap in women's health outcomes across New England.</p>
+        </div>
+        <div class="pillar">
+          <img src="https://newenglandgyn.com/wp-content/uploads/2025/09/Consulting.png" alt="Advising & Consulting" style="height:52px;width:auto;margin-bottom:0.6rem;object-fit:contain">
+          <h4>Advising &amp; Consulting</h4>
+          <p>Strategic solutions for health system stakeholders — integrating clinical, financial, and organizational expertise in the service of better outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TWO SEGMENTS ─── -->
+<section class="section alt" id="segments">
+  <div class="container">
+    <span class="section-label">Our Two Segments</span>
+    <h2 class="section-title">What We <em>Do</em></h2>
+    <div class="divider"></div>
+    <p class="lead">NEG Plus PLLC operates two structured business segments — one generating advisory revenue today, one building clinical infrastructure for tomorrow.</p>
+    <div class="seg-blocks">
+
+      <div class="seg-block fade-up">
+        <div class="seg-block-head gold-head">
+          <div class="seg-tag g">● Active Now</div>
+          <h2>Consulting &amp; Strategic Advisory</h2>
+          <p>Advanced healthcare consulting at the convergence of clinical expertise, financial rigor, and strategic management — led by Dr. Jimmy Belotte.</p>
+        </div>
+        <div class="seg-block-body">
+          <div class="seg-sublabel">Led by Dr. Jimmy Belotte, MD, MBA</div>
+          <ul class="seg-list">
+            <li>Clinical &amp; Operational Strategy</li>
+            <li>Financial Modeling &amp; Valuation</li>
+            <li>Healthcare Innovation &amp; R&amp;D Advisory</li>
+            <li>Organizational Design &amp; Transformation</li>
+            <li>Board &amp; Executive Advisory</li>
+            <li>Women's Health Sector Expertise</li>
+            <li>Biotech / MedTech Due Diligence</li>
+            <li>Regulatory Strategy (FDA, CMS, Payer)</li>
+          </ul>
+          <a href="consulting.html" class="seg-link">Explore Consulting Services →</a>
+        </div>
+      </div>
+
+      <div class="seg-block fade-up delay-2">
+        <div class="seg-block-head navy-head">
+          <div class="seg-tag n">◌ In Development — Launching 2027</div>
+          <h2>Care Delivery</h2>
+          <p>A next-generation ambulatory care platform focused on women's health, OBGYN, and primary care — currently in structured pre-launch development.</p>
+        </div>
+        <div class="seg-block-body">
+          <div class="cs-box">
+            <div class="cs-dot"></div>
+            <p>Care delivery is in active development. Site selection, credentialing, and service design are underway. <strong>Anticipated launch: 2027.</strong></p>
+          </div>
+          <div class="seg-sublabel n">Service Line 1 — OBGYN &amp; Women's Health</div>
+          <ul class="seg-list" style="margin-bottom:1.25rem;">
+            <li class="n">Comprehensive gynecologic care</li>
+            <li class="n">Reproductive medicine &amp; family planning</li>
+            <li class="n">Menopause &amp; hormone management</li>
+            <li class="n">Minimally invasive gynecologic surgery</li>
+          </ul>
+          <div class="seg-sublabel n">Service Line 2 — Primary Care</div>
+          <ul class="seg-list">
+            <li class="n">Adult primary &amp; preventive care</li>
+            <li class="n">Chronic disease management</li>
+            <li class="n">Integrated women's wellness</li>
+          </ul>
+          <a href="care-delivery.html" class="seg-link n">Learn About Our Care Vision →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── LEADERSHIP ─── -->
+<section class="section" id="leadership">
+  <div class="container">
+    <span class="section-label">Leadership</span>
+    <h2 class="section-title">Physician-Led, <em>Mission-Driven</em></h2>
+    <div class="divider"></div>
+    <p class="lead">Board-certified physicians with advanced business training — bringing clinical excellence and strategic sophistication to every engagement.</p>
+    <div class="leader-grid fade-up">
+      <div class="leader-card">
+        <div class="leader-card-top">
+          <img src="headshot.jpg" alt="Dr. Jimmy Belotte" class="avatar" style="object-fit:cover;object-position:center 12%;border:3px solid var(--gold);box-shadow:0 3px 16px rgba(184,134,11,0.28);">
+          <h3>Dr. Jimmy Belotte</h3>
+          <div class="cred">MD, MBA · Board-Certified OBGYN</div>
+        </div>
+        <div class="leader-card-body">
+          <div class="role-tags">
+            <div class="role-tag role-gold">Consulting Lead</div>
+            <div class="role-tag role-gold">OBGYN &amp; Women's Health Lead</div>
+            <div class="role-tag role-gray">Founder &amp; Managing Principal</div>
+          </div>
+          <a href="team.html#belotte" class="leader-link">Full Profile →</a>
+        </div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-card-top">
+          <div class="avatar av-navy">MA</div>
+          <h3>Dr. Mitchell Alexis</h3>
+          <div class="cred">MD, MS · Primary Care · Care Delivery Lead</div>
+        </div>
+        <div class="leader-card-body">
+          <div class="role-tags">
+            <div class="role-tag role-navy">Primary Care Lead — Care Delivery</div>
+            <div class="role-tag role-gray">Care Delivery Co-Lead</div>
+            <div class="role-tag role-gray">Launching 2027</div>
+          </div>
+          <a href="team.html#alexis" class="leader-link">Full Profile →</a>
+        </div>
+      </div>
+      <div class="leader-card leader-ghost">
+        <div class="plus">+</div>
+        <h3>Growing Team</h3>
+        <p>Additional clinical and administrative leadership will be announced as the 2027 care delivery launch approaches.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="team.html" class="btn btn-gold">Meet Our Full Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<section class="section dark">
+  <div class="container">
+    <span class="section-label" style="color:var(--gold-light);">By the Numbers</span>
+    <h2 class="section-title">The <em>NEG Plus</em> Difference</h2>
+    <div class="divider"></div>
+    <p class="lead" style="color:rgba(255,255,255,0.6);">Decades of clinical training, advanced business education, and a commitment to transforming healthcare — from the consulting room to the clinical practice.</p>
+    <div class="stats-row fade-up">
+      <div class="stat-box">
+        <div class="stat-num" style="font-size:1.9rem;letter-spacing:1px">MD·MBA</div>
+        <div class="stat-lbl">Physician-Executive credentials at the helm — clinical depth meets strategic breadth</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">8+</div>
+        <div class="stat-lbl">Consulting practice domains across clinical, financial, innovation, and regulatory strategy</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">2027</div>
+        <div class="stat-lbl">Anticipated care delivery launch — OBGYN &amp; Primary Care for women in New England</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Physician-led and women's health focused — from every consulting engagement to every patient encounter</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VALUES ─── -->
+<section class="section alt" id="values">
+  <div class="container">
+    <span class="section-label">Our Principles</span>
+    <h2 class="section-title">What We <em>Stand For</em></h2>
+    <div class="divider"></div>
+    <div class="values-grid fade-up">
+      <div class="value-card">
+        <div class="value-icon">🔬</div>
+        <h4>Evidence-Based Medicine</h4>
+        <p>Every clinical recommendation and strategic advisory engagement is grounded in peer-reviewed evidence, rigorous analysis, and board-certified expertise.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h4>Respect &amp; Collaboration</h4>
+        <p>We build lasting relationships with clients, patients, and partners — founded on mutual respect, transparent communication, and genuine collaboration.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h4>Diversity, Equity &amp; Inclusion</h4>
+        <p>Committed to removing barriers to care and advancing health equity for underserved populations — particularly those most affected by disparities in women's health.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💛</div>
+        <h4>Compassion</h4>
+        <p>Every patient, every client, every community — approached with empathy, dignity, and the conviction that healthcare is fundamentally a human endeavor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-strip" id="contact">
+  <div class="container">
+    <h2>Ready to Work with <em>NEG Plus PLLC?</em></h2>
+    <p>Seeking strategic advisory services, or want to be notified when our care delivery practice opens? We'd like to hear from you.</p>
+    <div class="cta-btns">
+      <a href="consulting.html#contact" class="btn btn-gold">Engage Our Consulting Practice</a>
+      <a href="care-delivery.html#notify" class="btn btn-ghost">Get Notified — Care Delivery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo_nav.png" class="f-logo" alt="NEG+ PLLC">
+      <p>New England Gynecology Plus PLLC — a physician-led consulting and care delivery organization serving clients and patients across New England and beyond.</p>
+      <p class="f-note">NEG Plus PLLC is a registered Professional Limited Liability Company. Care delivery services are in pre-launch development; anticipated patient-facing launch 2027. Consulting services are actively available.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="care-delivery.html">Care Delivery</a>
+      <a href="team.html">Leadership</a>
+    </div>
+    <div class="footer-col">
+      <h5>Consulting</h5>
+      <a href="consulting.html#capabilities">Clinical Strategy</a>
+      <a href="consulting.html#capabilities">Financial Advisory</a>
+      <a href="consulting.html#drug-development">Drug Development</a>
+      <a href="consulting.html#device-development">Device Development</a>
+      <a href="consulting.html#engagements">Engagement Models</a>
+    </div>
+    <div class="footer-col">
+      <h5>Care Delivery</h5>
+      <a href="care-delivery.html">OBGYN &amp; Women's Health</a>
+      <a href="care-delivery.html">Primary Care</a>
+      <a href="care-delivery.html#notify">Interest Registration</a>
+      <a href="team.html">Leadership Team</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 New England Gynecology Plus PLLC. All rights reserved. This website is for informational purposes only and does not constitute medical advice or establish a physician-patient relationship. Care delivery services are in development and not yet available to patients.</div>
+    <div style="color:rgba(255,255,255,0.22); font-size:0.7rem; white-space:nowrap;">NEG Plus PLLC</div>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('mob');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    });
+  });
+
+  // Entrance animations
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        fadeObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>

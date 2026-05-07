@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" width="240" height="56" role="img" aria-label="New England Gynecology Plus PLLC">
+  <!-- NEG -->
+  <text x="0" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="-1" fill="#1B2E59">NEG</text>
+  <!-- + in gold -->
+  <text x="100" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#C8942A">+</text>
+  <!-- PLLC superscript -->
+  <text x="128" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#1B2E59">PLLC</text>
+  <!-- Gold underline rule -->
+  <rect x="0" y="45" width="140" height="2.5" rx="1.25" fill="#C8942A" opacity="0.55"/>
+  <!-- Full name below -->
+  <text x="0" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="1.8" fill="#4A5A7A">NEW ENGLAND GYNECOLOGY PLUS</text>
+</svg>
