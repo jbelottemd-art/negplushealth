@@ -68,10 +68,10 @@
     .faq-item:hover{border-color:var(--gold)}
     .faq-q{width:100%;background:none;border:none;padding:1.1rem 1.5rem;text-align:left;font-size:0.92rem;font-weight:700;color:var(--text-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:inherit}
     .faq-q:hover{color:var(--gold)}
-    .faq-icon{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.9rem;color:var(--gray-lt);transition:all 0.2s}
+    .faq-icon{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.9rem;color:var(--gray-lt);transition:all 0.2s;line-height:1}
     .faq-item.open .faq-icon{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(45deg)}
-    .faq-a{display:none;padding:0 1.5rem 1.25rem;font-size:0.875rem;color:var(--text-mid);line-height:1.8}
-    .faq-item.open .faq-a{display:block}
+    .faq-a{display:block;padding:0 1.5rem 1.25rem;font-size:0.875rem;color:var(--text-mid);line-height:1.8;border-top:1px solid var(--border)}
+    .faq-item.closed .faq-a{display:none}
     .faq-a a{color:var(--gold);font-weight:600;text-decoration:none}
     .faq-a a:hover{text-decoration:underline}
     footer{background:#0a0a0a;padding:60px 2rem 0}
@@ -285,10 +285,15 @@
   const ham=document.getElementById('ham'),mob=document.getElementById('mob');
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
   document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+  // All FAQ items start open; clicking collapses them
   document.querySelectorAll('.faq-q').forEach(btn=>{
+    const icon = btn.querySelector('.faq-icon');
+    if(icon) icon.textContent = '−';
     btn.addEventListener('click',()=>{
       const item=btn.parentElement;
-      item.classList.toggle('open');
+      item.classList.toggle('closed');
+      const ic = btn.querySelector('.faq-icon');
+      if(ic) ic.textContent = item.classList.contains('closed') ? '+' : '−';
     });
   });
 </script>
