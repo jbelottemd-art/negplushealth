@@ -1,624 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadership Team | New England Gynecology Plus PLLC</title>
-  <meta name="description" content="Meet the physician leaders of New England Gynecology Plus PLLC — Dr. Jimmy Belotte, MD, PhD, MBA, FACOG (Founder) and Dr. Mitchell Alexis, MD, MS (Care Delivery Lead), driving excellence in women's health.">
-  <link rel="icon" href="favicon.png">
-  <style>
-    :root {
-      --black:#111111; --charcoal:#1E1E1E; --gold:#B8860B; --gold-light:#D4A830;
-      --gold-pale:#FBF5E0; --gold-mid:#C9A030; --navy:#1B2E59; --navy-mid:#2D4475;
-      --navy-light:#778DA9; --navy-pale:#EAF0F8; --rose:#A04060; --rose-light:#C87090;
-      --rose-pale:#FAF0F4; --teal:#2A7A7A; --teal-light:#4DAFAF; --cream:#FAF8F3;
-      --cream-dark:#F0EBE0; --gray:#5A5A5A; --gray-lt:#8A8A8A; --white:#FFFFFF;
-      --text-dark:#111111; --text-mid:#444444; --border:#E5DDD0;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    [id]{scroll-margin-top:90px}
-    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease}
-    .fade-up.visible{opacity:1;transform:translateY(0)}
-    .fade-up.delay-1{transition-delay:0.1s}.fade-up.delay-2{transition-delay:0.2s}.fade-up.delay-3{transition-delay:0.3s}.fade-up.delay-4{transition-delay:0.4s}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;line-height:1.65;color:var(--text-dark);background:var(--white)}
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Leadership Team | New England Gynecology Plus PLLC</title> <meta name="description" content="Meet the physician leaders of New England Gynecology Plus PLLC — Dr. Jimmy Belotte, MD, PhD, MBA, FACOG (Founder) and Dr. Mitchell Alexis, MD, MS (Care Delivery Lead), driving excellence in women's health."> <link rel="icon" href="favicon.png"> <style> :root {
+ --black:#111111; --charcoal:#1E1E1E; --gold:#B8860B; --gold-light:#D4A830;
+ --gold-pale:#FBF5E0; --gold-mid:#C9A030; --navy:#1B2E59; --navy-mid:#2D4475;
+ --navy-light:#778DA9; --navy-pale:#EAF0F8; --rose:#A04060; --rose-light:#C87090;
+ --rose-pale:#FAF0F4; --teal:#2A7A7A; --teal-light:#4DAFAF; --cream:#FAF8F3;
+ --cream-dark:#F0EBE0; --gray:#5A5A5A; --gray-lt:#8A8A8A; --white:#FFFFFF;
+ --text-dark:#111111; --text-mid:#444444; --border:#E5DDD0;
+ }
+ *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+ html{scroll-behavior:smooth}
+ [id]{scroll-margin-top:90px}
+ .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease}
+ .fade-up.visible{opacity:1;transform:translateY(0)}
+ .fade-up.delay-1{transition-delay:0.1s}.fade-up.delay-2{transition-delay:0.2s}.fade-up.delay-3{transition-delay:0.3s}.fade-up.delay-4{transition-delay:0.4s}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;line-height:1.65;color:var(--text-dark);background:var(--white)}
 
-    /* NAV */
-    nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:3px solid var(--gold);box-shadow:0 2px 20px rgba(0,0,0,0.08)}
-    .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px}
-    .nav-logo{display:flex;align-items:center;gap:16px;text-decoration:none;flex-shrink:0}
-    .nav-logo img{height:54px;width:auto;display:block}
-    .nav-logo-sub{font-size:0.62rem;font-weight:700;color:var(--navy-mid);text-transform:uppercase;letter-spacing:2px;line-height:1.5;border-left:2px solid var(--gold);padding-left:14px}
-    .nav-links{display:flex;list-style:none;align-items:center}
-    .nav-links a{display:block;padding:0 1.1rem;height:80px;line-height:80px;font-size:0.8rem;font-weight:600;text-decoration:none;color:var(--gray);text-transform:uppercase;letter-spacing:0.8px;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
-    .nav-links a:hover,.nav-links a.active{color:var(--black);border-bottom-color:var(--gold)}
-    .nav-cta{background:var(--gold)!important;color:var(--white)!important;border-radius:50px;padding:0 1.5rem!important;height:42px!important;line-height:42px!important;margin:auto 0;border-bottom:none!important;box-shadow:0 2px 10px rgba(184,134,11,0.3)}
-    .nav-cta:hover{background:var(--gold-mid)!important;transform:translateY(-1px)}
-    .nav-links>li{position:relative}
-    .nav-dropdown{position:absolute;top:calc(100% + 3px);left:50%;transform:translateX(-50%) translateY(-8px);min-width:225px;background:var(--white);border-top:2px solid var(--gold);border-radius:0 0 12px 12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);list-style:none;padding:0.4rem 0;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:2000}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-    .nav-dropdown li{margin:0}
-    .nav-dropdown a{height:auto!important;line-height:1.4!important;padding:0.55rem 1.2rem!important;font-size:0.77rem!important;font-weight:500!important;color:var(--text-dark)!important;border-bottom:none!important;margin-bottom:0!important;letter-spacing:0.2px!important;text-transform:none!important}
-    .nav-dropdown a:hover{background:var(--gold-pale)!important;color:var(--gold)!important}
-    .dd-div{height:1px;background:var(--border);margin:0.3rem 0}
-    .nav-portal{background:transparent;color:var(--gray-lt)!important;border:1.5px solid var(--border);border-radius:50px;padding:0 0.9rem!important;height:34px!important;line-height:32px!important;margin:auto 0 auto 0.5rem;font-size:0.72rem!important;font-weight:600!important;text-decoration:none;display:inline-block;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;border-bottom:1.5px solid var(--border)!important;transition:border-color 0.2s,color 0.2s!important}
-    .nav-portal:hover{border-color:var(--gold)!important;color:var(--gold)!important}
-    .nav-patient{background:var(--navy)!important;color:var(--white)!important;border-radius:50px;padding:0 1.2rem!important;height:38px!important;line-height:38px!important;margin:auto 0 auto 0.75rem;font-size:0.75rem!important;font-weight:700!important;text-decoration:none;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;border-bottom:none!important;box-shadow:0 2px 10px rgba(27,46,89,0.3);transition:background 0.2s,transform 0.2s,box-shadow 0.2s!important;flex-shrink:0}
-    .nav-patient:hover{background:var(--navy-mid)!important;transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,46,89,0.4)!important}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--black);border-radius:2px;transition:all 0.3s}
-    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-    .hamburger.open span:nth-child(2){opacity:0}
-    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-    .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;background:var(--white);border-bottom:3px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:999;padding:1.5rem 2rem;flex-direction:column}
-    .mobile-menu.open{display:flex}
-    .mobile-menu a{display:block;padding:1rem 0;font-size:1rem;font-weight:600;color:var(--text-dark);text-decoration:none;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);transition:color 0.2s}
-    .mobile-menu a:last-child{border-bottom:none}
-    .mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .m-cta{margin-top:1rem;background:var(--gold);color:var(--white);text-align:center;border-radius:50px;padding:0.85rem 2rem;border-bottom:none!important}
+ /* NAV */
+ nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:3px solid var(--gold);box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+ .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px}
+ .nav-logo{display:flex;align-items:center;gap:16px;text-decoration:none;flex-shrink:0}
+ .nav-logo img{height:54px;width:auto;display:block}
+ .nav-logo-sub{font-size:0.62rem;font-weight:700;color:var(--navy-mid);text-transform:uppercase;letter-spacing:2px;line-height:1.5;border-left:2px solid var(--gold);padding-left:14px}
+ .nav-links{display:flex;list-style:none;align-items:center}
+ .nav-links a{display:block;padding:0 1.1rem;height:80px;line-height:80px;font-size:0.8rem;font-weight:600;text-decoration:none;color:var(--gray);text-transform:uppercase;letter-spacing:0.8px;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
+ .nav-links a:hover,.nav-links a.active{color:var(--black);border-bottom-color:var(--gold)}
+ .nav-cta{background:var(--gold)!important;color:var(--white)!important;border-radius:50px;padding:0 1.5rem!important;height:42px!important;line-height:42px!important;margin:auto 0;border-bottom:none!important;box-shadow:0 2px 10px rgba(184,134,11,0.3)}
+ .nav-cta:hover{background:var(--gold-mid)!important;transform:translateY(-1px)}
+ .nav-links>li{position:relative}
+ .nav-dropdown{position:absolute;top:calc(100% + 3px);left:50%;transform:translateX(-50%) translateY(-8px);min-width:225px;background:var(--white);border-top:2px solid var(--gold);border-radius:0 0 12px 12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);list-style:none;padding:0.4rem 0;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:2000}
+ .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+ .nav-dropdown li{margin:0}
+ .nav-dropdown a{height:auto!important;line-height:1.4!important;padding:0.55rem 1.2rem!important;font-size:0.77rem!important;font-weight:500!important;color:var(--text-dark)!important;border-bottom:none!important;margin-bottom:0!important;letter-spacing:0.2px!important;text-transform:none!important}
+ .nav-dropdown a:hover{background:var(--gold-pale)!important;color:var(--gold)!important}
+ .dd-div{height:1px;background:var(--border);margin:0.3rem 0}
+ .nav-portal{background:transparent;color:var(--gray-lt)!important;border:1.5px solid var(--border);border-radius:50px;padding:0 0.9rem!important;height:34px!important;line-height:32px!important;margin:auto 0 auto 0.5rem;font-size:0.72rem!important;font-weight:600!important;text-decoration:none;display:inline-block;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;border-bottom:1.5px solid var(--border)!important;transition:border-color 0.2s,color 0.2s!important}
+ .nav-portal:hover{border-color:var(--gold)!important;color:var(--gold)!important}
+ .nav-patient{background:var(--navy)!important;color:var(--white)!important;border-radius:50px;padding:0 1.2rem!important;height:38px!important;line-height:38px!important;margin:auto 0 auto 0.75rem;font-size:0.75rem!important;font-weight:700!important;text-decoration:none;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;border-bottom:none!important;box-shadow:0 2px 10px rgba(27,46,89,0.3);transition:background 0.2s,transform 0.2s,box-shadow 0.2s!important;flex-shrink:0}
+ .nav-patient:hover{background:var(--navy-mid)!important;transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,46,89,0.4)!important}
+ .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+ .hamburger span{display:block;width:24px;height:2px;background:var(--black);border-radius:2px;transition:all 0.3s}
+ .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+ .hamburger.open span:nth-child(2){opacity:0}
+ .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;background:var(--white);border-bottom:3px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:999;padding:1.5rem 2rem;flex-direction:column}
+ .mobile-menu.open{display:flex}
+ .mobile-menu a{display:block;padding:1rem 0;font-size:1rem;font-weight:600;color:var(--text-dark);text-decoration:none;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);transition:color 0.2s}
+ .mobile-menu a:last-child{border-bottom:none}
+ .mobile-menu a:hover{color:var(--gold)}
+ .mobile-menu .m-cta{margin-top:1rem;background:var(--gold);color:var(--white);text-align:center;border-radius:50px;padding:0.85rem 2rem;border-bottom:none!important}
 
-    /* HERO */
-    .page-hero{background:linear-gradient(150deg,#1a1200 0%,#111111 60%,#0d0d0d 100%);padding:110px 2rem 90px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(184,134,11,0.07)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E")}
-    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
-    .eyebrow{display:inline-block;background:rgba(184,134,11,0.14);border:1px solid rgba(184,134,11,0.32);color:rgba(212,168,48,0.9);font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 20px;border-radius:50px;margin-bottom:1.4rem}
-    .page-hero h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:1rem;letter-spacing:-1px}
-    .page-hero h1 em{color:var(--gold-light);font-style:normal}
-    .page-hero .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.68);max-width:700px;line-height:1.82}
-    .hero-stats{display:flex;gap:3rem;margin-top:2.5rem;flex-wrap:wrap}
-    .h-stat{display:flex;flex-direction:column;gap:2px}
-    .h-stat strong{font-size:1.5rem;font-weight:800;color:var(--gold-light);letter-spacing:-0.5px}
-    .h-stat span{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px}
+ /* HERO */
+ .page-hero{background:linear-gradient(150deg,#1a1200 0%,#111111 60%,#0d0d0d 100%);padding:110px 2rem 90px;position:relative;overflow:hidden}
+ .page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(184,134,11,0.07)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E")}
+ .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+ .eyebrow{display:inline-block;background:rgba(184,134,11,0.14);border:1px solid rgba(184,134,11,0.32);color:rgba(212,168,48,0.9);font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 20px;border-radius:50px;margin-bottom:1.4rem}
+ .page-hero h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:1rem;letter-spacing:-1px}
+ .page-hero h1 em{color:var(--gold-light);font-style:normal}
+ .page-hero .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.68);max-width:700px;line-height:1.82}
+ .hero-stats{display:flex;gap:3rem;margin-top:2.5rem;flex-wrap:wrap}
+ .h-stat{display:flex;flex-direction:column;gap:2px}
+ .h-stat strong{font-size:1.5rem;font-weight:800;color:var(--gold-light);letter-spacing:-0.5px}
+ .h-stat span{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px}
 
-    /* COMMON */
-    .section{padding:90px 2rem}
-    .section.alt{background:var(--cream)}
-    .section.dark{background:var(--black);color:var(--white)}
-    .section.navy{background:var(--navy);color:var(--white)}
-    .container{max-width:1280px;margin:0 auto}
-    .section-label{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
-    .section-label.lt{color:var(--navy-light)}
-    .section-title{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;color:var(--text-dark);line-height:1.18;margin-bottom:0.75rem;letter-spacing:-0.5px}
-    .section-title em{color:var(--gold);font-style:normal}
-    .section.dark .section-title,.section.navy .section-title{color:var(--white)}
-    .section.navy .section-title em{color:var(--gold-light)}
-    .divider{width:48px;height:4px;background:var(--gold);border-radius:2px;margin:0.75rem 0 1.5rem}
-    .divider.lt{background:var(--navy-light)}
-    .lead{font-size:1rem;color:var(--gray);max-width:660px;line-height:1.85}
-    .lead.light{color:rgba(255,255,255,0.65)}
-    .btn{display:inline-block;padding:14px 36px;border-radius:50px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:all 0.25s;cursor:pointer}
-    .btn-gold{background:var(--gold);color:var(--white);border:2px solid var(--gold)}
-    .btn-gold:hover{background:var(--gold-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,134,11,0.4)}
-    .btn-ghost-dark{background:transparent;color:rgba(255,255,255,0.8);border:2px solid rgba(255,255,255,0.25)}
-    .btn-ghost-dark:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5)}
-    .btn-navy{background:var(--navy);color:var(--white);border:2px solid var(--navy)}
-    .btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px)}
+ /* COMMON */
+ .section{padding:90px 2rem}
+ .section.alt{background:var(--cream)}
+ .section.dark{background:var(--black);color:var(--white)}
+ .section.navy{background:var(--navy);color:var(--white)}
+ .container{max-width:1280px;margin:0 auto}
+ .section-label{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+ .section-label.lt{color:var(--navy-light)}
+ .section-title{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;color:var(--text-dark);line-height:1.18;margin-bottom:0.75rem;letter-spacing:-0.5px}
+ .section-title em{color:var(--gold);font-style:normal}
+ .section.dark .section-title,.section.navy .section-title{color:var(--white)}
+ .section.navy .section-title em{color:var(--gold-light)}
+ .divider{width:48px;height:4px;background:var(--gold);border-radius:2px;margin:0.75rem 0 1.5rem}
+ .divider.lt{background:var(--navy-light)}
+ .lead{font-size:1rem;color:var(--gray);max-width:660px;line-height:1.85}
+ .lead.light{color:rgba(255,255,255,0.65)}
+ .btn{display:inline-block;padding:14px 36px;border-radius:50px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:all 0.25s;cursor:pointer}
+ .btn-gold{background:var(--gold);color:var(--white);border:2px solid var(--gold)}
+ .btn-gold:hover{background:var(--gold-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,134,11,0.4)}
+ .btn-ghost-dark{background:transparent;color:rgba(255,255,255,0.8);border:2px solid rgba(255,255,255,0.25)}
+ .btn-ghost-dark:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5)}
+ .btn-navy{background:var(--navy);color:var(--white);border:2px solid var(--navy)}
+ .btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px)}
 
-    /* ── FOUNDER PROFILE ─────────────────────────────── */
-    .founder-grid{display:grid;grid-template-columns:340px 1fr;gap:3.5rem;align-items:start;margin-top:2.5rem}
-    .founder-card{background:var(--white);border-radius:22px;padding:2.5rem 2rem;box-shadow:0 4px 28px rgba(0,0,0,0.1);border-top:4px solid var(--gold);position:sticky;top:100px}
-    .f-avatar{width:100px;height:100px;border-radius:50%;display:block;overflow:hidden;margin:0 auto 1.5rem;flex-shrink:0}
-    .founder-card h3{font-size:1.25rem;font-weight:800;color:var(--text-dark);text-align:center;margin-bottom:0.25rem}
-    .f-cred{font-size:0.78rem;font-weight:600;color:var(--gold);text-align:center;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1px}
-    .f-roles{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.75rem}
-    .f-role{display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:10px;padding:10px 14px}
-    .f-role-ico{font-size:1rem}
-    .f-role-text{font-size:0.78rem;font-weight:600;color:var(--text-dark);line-height:1.35}
-    .f-role-sub{font-size:0.7rem;font-weight:400;color:var(--gray)}
-    .f-contact a{display:block;width:100%;text-align:center;padding:11px 0;border-radius:50px;background:var(--gold);color:var(--white);font-size:0.82rem;font-weight:700;text-decoration:none;transition:all 0.25s}
-    .f-contact a:hover{background:var(--gold-mid);transform:translateY(-1px)}
+ /* ── FOUNDER PROFILE ─────────────────────────────── */
+ .founder-grid{display:grid;grid-template-columns:340px 1fr;gap:3.5rem;align-items:start;margin-top:2.5rem}
+ .founder-card{background:var(--white);border-radius:22px;padding:2.5rem 2rem;box-shadow:0 4px 28px rgba(0,0,0,0.1);border-top:4px solid var(--gold);position:sticky;top:100px}
+ .f-avatar{width:100px;height:100px;border-radius:50%;display:block;overflow:hidden;margin:0 auto 1.5rem;flex-shrink:0}
+ .founder-card h3{font-size:1.25rem;font-weight:800;color:var(--text-dark);text-align:center;margin-bottom:0.25rem}
+ .f-cred{font-size:0.78rem;font-weight:600;color:var(--gold);text-align:center;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1px}
+ .f-roles{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.75rem}
+ .f-role{display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:10px;padding:10px 14px}
+ .f-role-ico{font-size:1rem}
+ .f-role-text{font-size:0.78rem;font-weight:600;color:var(--text-dark);line-height:1.35}
+ .f-role-sub{font-size:0.7rem;font-weight:400;color:var(--gray)}
+ .f-contact a{display:block;width:100%;text-align:center;padding:11px 0;border-radius:50px;background:var(--gold);color:var(--white);font-size:0.82rem;font-weight:700;text-decoration:none;transition:all 0.25s}
+ .f-contact a:hover{background:var(--gold-mid);transform:translateY(-1px)}
 
-    /* Bio content */
-    .bio-section{display:flex;flex-direction:column;gap:2rem}
-    .bio-block h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:0.75rem}
-    .bio-block p{font-size:0.94rem;color:var(--text-mid);line-height:1.85;margin-bottom:0.85rem}
-    .bio-block p:last-child{margin-bottom:0}
-    .chip-wrap{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.5rem}
-    .chip{background:var(--cream-dark);border:1px solid var(--border);border-radius:8px;padding:5px 13px;font-size:0.76rem;font-weight:600;color:var(--text-mid)}
+ /* Bio content */
+ .bio-section{display:flex;flex-direction:column;gap:2rem}
+ .bio-block h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:0.75rem}
+ .bio-block p{font-size:0.94rem;color:var(--text-mid);line-height:1.85;margin-bottom:0.85rem}
+ .bio-block p:last-child{margin-bottom:0}
+ .chip-wrap{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.5rem}
+ .chip{background:var(--cream-dark);border:1px solid var(--border);border-radius:8px;padding:5px 13px;font-size:0.76rem;font-weight:600;color:var(--text-mid)}
 
-    .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:0.5rem}
-    .edu-item{background:var(--cream);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:0.9rem 1.1rem}
-    .edu-item h5{font-size:0.82rem;font-weight:700;color:var(--text-dark);margin-bottom:0.2rem}
-    .edu-item p{font-size:0.75rem;color:var(--gray);line-height:1.45}
+ .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:0.5rem}
+ .edu-item{background:var(--cream);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:0.9rem 1.1rem}
+ .edu-item h5{font-size:0.82rem;font-weight:700;color:var(--text-dark);margin-bottom:0.2rem}
+ .edu-item p{font-size:0.75rem;color:var(--gray);line-height:1.45}
 
-    .exp-list{display:flex;flex-direction:column;gap:0.85rem;margin-top:0.5rem}
-    .exp-item{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.25rem;background:var(--white);border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);border-left:3px solid var(--gold)}
-    .exp-ico{font-size:1.2rem;flex-shrink:0;margin-top:1px}
-    .exp-item h5{font-size:0.85rem;font-weight:700;color:var(--text-dark);margin-bottom:0.2rem}
-    .exp-item p{font-size:0.78rem;color:var(--gray);line-height:1.5}
+ .exp-list{display:flex;flex-direction:column;gap:0.85rem;margin-top:0.5rem}
+ .exp-item{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.25rem;background:var(--white);border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);border-left:3px solid var(--gold)}
+ .exp-ico{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+ .exp-item h5{font-size:0.85rem;font-weight:700;color:var(--text-dark);margin-bottom:0.2rem}
+ .exp-item p{font-size:0.78rem;color:var(--gray);line-height:1.5}
 
-    /* ── CARE DELIVERY PHYSICIAN ─────────────────────── */
-    .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;align-items:start}
-    .cd-profile{background:var(--white);border-radius:22px;padding:2.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);border-top:4px solid var(--teal)}
-    .cd-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-light) 100%);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:1.5rem;letter-spacing:-1px}
-    .cd-profile h3{font-size:1.2rem;font-weight:800;color:var(--text-dark);margin-bottom:0.2rem}
-    .cd-cred{font-size:0.76rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:1.25rem}
-    .cd-profile p{font-size:0.9rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem}
-    .cd-profile p:last-of-type{margin-bottom:1.25rem}
-    .soon-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(42,122,122,0.1);border:1px solid rgba(42,122,122,0.25);color:var(--teal);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:5px 14px;border-radius:50px}
-    .sdot{width:6px;height:6px;background:var(--teal-light);border-radius:50%;animation:pulse 2.5s infinite}
+ /* ── CARE DELIVERY PHYSICIAN ─────────────────────── */
+ .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;align-items:start}
+ .cd-profile{background:var(--white);border-radius:22px;padding:2.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);border-top:4px solid var(--teal)}
+ .cd-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-light) 100%);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:1.5rem;letter-spacing:-1px}
+ .cd-profile h3{font-size:1.2rem;font-weight:800;color:var(--text-dark);margin-bottom:0.2rem}
+ .cd-cred{font-size:0.76rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:1.25rem}
+ .cd-profile p{font-size:0.9rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem}
+ .cd-profile p:last-of-type{margin-bottom:1.25rem}
+ .soon-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(42,122,122,0.1);border:1px solid rgba(42,122,122,0.25);color:var(--teal);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:5px 14px;border-radius:50px}
+ .sdot{width:6px;height:6px;background:var(--teal-light);border-radius:50%;animation:pulse 2.5s infinite}
 
-    .cd-context{background:linear-gradient(135deg,#0e2a2a 0%,var(--teal) 100%);border-radius:22px;padding:2.5rem;color:var(--white);display:flex;flex-direction:column;justify-content:space-between}
-    .cd-context h4{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:1rem}
-    .cd-context p{font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:1.5rem}
-    .cd-milestones{display:flex;flex-direction:column;gap:0.75rem}
-    .cd-ms{display:flex;align-items:center;gap:12px;font-size:0.82rem;color:rgba(255,255,255,0.72)}
-    .cd-ms-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0}
-    .cd-ms.done .cd-ms-dot{background:#66bb6a}
-    .cd-ms.active .cd-ms-dot{background:var(--gold-light);animation:pulse 2s infinite}
-    .cd-ms strong{color:rgba(255,255,255,0.92)}
+ .cd-context{background:linear-gradient(135deg,#0e2a2a 0%,var(--teal) 100%);border-radius:22px;padding:2.5rem;color:var(--white);display:flex;flex-direction:column;justify-content:space-between}
+ .cd-context h4{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:1rem}
+ .cd-context p{font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:1.5rem}
+ .cd-milestones{display:flex;flex-direction:column;gap:0.75rem}
+ .cd-ms{display:flex;align-items:center;gap:12px;font-size:0.82rem;color:rgba(255,255,255,0.72)}
+ .cd-ms-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0}
+ .cd-ms.done .cd-ms-dot{background:#66bb6a}
+ .cd-ms.active .cd-ms-dot{background:var(--gold-light);animation:pulse 2s infinite}
+ .cd-ms strong{color:rgba(255,255,255,0.92)}
 
-    /* ── GROWING TEAM ────────────────────────────────── */
-    .grow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-    .grow-card{border-radius:18px;padding:2rem 1.75rem;border:2px dashed var(--border);background:var(--cream);text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
-    .grow-ico{font-size:2rem;opacity:0.4}
-    .grow-card h4{font-size:0.9rem;font-weight:700;color:var(--text-mid)}
-    .grow-card p{font-size:0.8rem;color:var(--gray-lt);line-height:1.6}
+ /* ── GROWING TEAM ────────────────────────────────── */
+ .grow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+ .grow-card{border-radius:18px;padding:2rem 1.75rem;border:2px dashed var(--border);background:var(--cream);text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+ .grow-ico{font-size:2rem;opacity:0.4}
+ .grow-card h4{font-size:0.9rem;font-weight:700;color:var(--text-mid)}
+ .grow-card p{font-size:0.8rem;color:var(--gray-lt);line-height:1.6}
 
-    /* ── VALUES ──────────────────────────────────────── */
-    .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
-    .val-card{background:linear-gradient(150deg,#1a1200 0%,#1e1600 100%);border-radius:16px;padding:1.75rem 1.5rem;border:1px solid rgba(184,134,11,0.15);transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s}
-    .val-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(184,134,11,0.18);border-color:rgba(184,134,11,0.35)}
-    .val-ico{font-size:1.6rem;margin-bottom:0.75rem}
-    .val-card h4{font-size:0.9rem;font-weight:700;color:var(--gold-light);margin-bottom:0.5rem}
-    .val-card p{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.65}
+ /* ── VALUES ──────────────────────────────────────── */
+ .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
+ .val-card{background:linear-gradient(150deg,#1a1200 0%,#1e1600 100%);border-radius:16px;padding:1.75rem 1.5rem;border:1px solid rgba(184,134,11,0.15);transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s}
+ .val-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(184,134,11,0.18);border-color:rgba(184,134,11,0.35)}
+ .val-ico{font-size:1.6rem;margin-bottom:0.75rem}
+ .val-card h4{font-size:0.9rem;font-weight:700;color:var(--gold-light);margin-bottom:0.5rem}
+ .val-card p{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.65}
 
-    /* ── CTA STRIP ───────────────────────────────────── */
-    .cta-strip{background:linear-gradient(150deg,#1a1200 0%,#111111 60%,#0d0d0d 100%);padding:90px 2rem;text-align:center;position:relative;overflow:hidden}
-    .cta-strip::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(184,134,11,0.06)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E")}
-    .cta-strip .container{position:relative;z-index:1}
-    .cta-strip h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);line-height:1.18;margin-bottom:0.75rem;letter-spacing:-0.5px}
-    .cta-strip h2 em{color:var(--gold-light);font-style:normal}
-    .cta-strip p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px;margin:0 auto 2.5rem;line-height:1.8}
-    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+ /* ── AFFILIATIONS ────────────────────────────────── */
+ .org-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.75rem}
+ .org-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.22s,box-shadow 0.22s,transform 0.22s}
+ .org-card:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(184,134,11,0.12);transform:translateY(-3px)}
+ .org-abbr{font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:0.5px}
+ .org-name{font-size:0.78rem;font-weight:700;color:var(--text-dark);line-height:1.3}
+ .org-desc{font-size:0.73rem;color:var(--gray);line-height:1.5;flex:1}
+ .org-link{font-size:0.72rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:0.3px;margin-top:auto;display:inline-flex;align-items:center;gap:4px}
+ .org-link:hover{color:var(--gold-mid)}
+ @media(max-width:820px){.org-grid{grid-template-columns:repeat(2,1fr)}}
+ @media(max-width:480px){.org-grid{grid-template-columns:1fr}}
 
-    /* FOOTER */
-    footer{background:#0a0a0a;padding:60px 2rem 0}
-    .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
-    .footer-brand img.f-logo{height:44px;width:auto;filter:brightness(0) invert(1);opacity:0.75;margin-bottom:1.25rem}
-    .footer-brand p{font-size:0.8rem;color:rgba(255,255,255,0.38);line-height:1.75;max-width:300px}
-    .footer-brand .f-note{margin-top:0.75rem;font-size:0.72rem;color:rgba(255,255,255,0.22);font-style:italic}
-    .footer-col h5{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:1rem}
-    .footer-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
-    .footer-col a:hover{color:var(--gold-light)}
-    .footer-bottom{max-width:1280px;margin:0 auto;padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    .footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.22)}
+ /* ── CTA STRIP ───────────────────────────────────── */
+ .cta-strip{background:linear-gradient(150deg,#1a1200 0%,#111111 60%,#0d0d0d 100%);padding:90px 2rem;text-align:center;position:relative;overflow:hidden}
+ .cta-strip::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(184,134,11,0.06)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E")}
+ .cta-strip .container{position:relative;z-index:1}
+ .cta-strip h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);line-height:1.18;margin-bottom:0.75rem;letter-spacing:-0.5px}
+ .cta-strip h2 em{color:var(--gold-light);font-style:normal}
+ .cta-strip p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px;margin:0 auto 2.5rem;line-height:1.8}
+ .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
-    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.75)}}
+ /* FOOTER */
+ footer{background:#0a0a0a;padding:60px 2rem 0}
+ .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+ .footer-brand img.f-logo{height:44px;width:auto;filter:brightness(0) invert(1);opacity:0.75;margin-bottom:1.25rem}
+ .footer-brand p{font-size:0.8rem;color:rgba(255,255,255,0.38);line-height:1.75;max-width:300px}
+ .footer-brand .f-note{margin-top:0.75rem;font-size:0.72rem;color:rgba(255,255,255,0.22);font-style:italic}
+ .footer-col h5{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:1rem}
+ .footer-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
+ .footer-col a:hover{color:var(--gold-light)}
+ .footer-bottom{max-width:1280px;margin:0 auto;padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+ .footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.22)}
 
-    /* ── RESPONSIVE ──────────────────────────────────── */
-    @media(max-width:1024px){
-      .founder-grid{grid-template-columns:280px 1fr;gap:2.5rem}
-      .values-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-inner{grid-template-columns:1fr 1fr;gap:2rem}
-      .edu-grid{grid-template-columns:1fr}
-    }
-    @media(max-width:820px){
-      .nav-links,.nav-logo-sub{display:none}
-      .hamburger{display:flex}
-      .nav-portal{display:none!important}
-      .founder-grid{grid-template-columns:1fr;gap:2rem}
-      .founder-card{position:static}
-      .cd-grid{grid-template-columns:1fr;gap:2rem}
-      .grow-grid{grid-template-columns:repeat(2,1fr)}
-      .hero-stats{gap:2rem}
-    }
-    @media(max-width:600px){
-      .page-hero{padding:80px 1.25rem 60px}
-      .section{padding:60px 1.25rem}
-      .values-grid{grid-template-columns:1fr}
-      .grow-grid{grid-template-columns:1fr}
-      .cta-strip{padding:60px 1.25rem}
-      .footer-inner{grid-template-columns:1fr}
-      .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.5rem}
-      .edu-grid{grid-template-columns:1fr}
-    }
-  </style>
+ @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.75)}}
+
+ /* ── RESPONSIVE ──────────────────────────────────── */
+ @media(max-width:1024px){
+ .founder-grid{grid-template-columns:280px 1fr;gap:2.5rem}
+ .values-grid{grid-template-columns:repeat(2,1fr)}
+ .footer-inner{grid-template-columns:1fr 1fr;gap:2rem}
+ .edu-grid{grid-template-columns:1fr}
+ }
+ @media(max-width:820px){
+ .nav-links,.nav-logo-sub{display:none}
+ .hamburger{display:flex}
+ .nav-portal{display:none!important}
+ .founder-grid{grid-template-columns:1fr;gap:2rem}
+ .founder-card{position:static}
+ .cd-grid{grid-template-columns:1fr;gap:2rem}
+ .grow-grid{grid-template-columns:repeat(2,1fr)}
+ .hero-stats{gap:2rem}
+ }
+ @media(max-width:600px){
+ .page-hero{padding:80px 1.25rem 60px}
+ .section{padding:60px 1.25rem}
+ .values-grid{grid-template-columns:1fr}
+ .grow-grid{grid-template-columns:1fr}
+ .cta-strip{padding:60px 1.25rem}
+ .footer-inner{grid-template-columns:1fr}
+ .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.5rem}
+ .edu-grid{grid-template-columns:1fr}
+ }
+ </style>
 </head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html">
-      <img src="logo_nav.png" alt="NEG+ PLLC">
-      <span class="nav-logo-sub">New England<br>Gynecology Plus</span>
-    </a>
-    <ul class="nav-links">
-      <li>
-        <a href="services.html">Services</a>
-        <ul class="nav-dropdown">
-          <li><a href="services.html">Services Overview</a></li>
-          <li class="dd-div"></li>
-          <li><a href="consulting.html">Consulting &amp; Advisory</a></li>
-          <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li>
-          <li><a href="care-delivery.html#service-lines">Primary Care</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="consulting.html">Consulting</a>
-        <ul class="nav-dropdown">
-          <li><a href="consulting.html">Consulting Overview</a></li>
-          <li class="dd-div"></li>
-          <li><a href="consulting.html#convergence">Integration Advantage</a></li>
-          <li><a href="consulting.html#capabilities">Capabilities</a></li>
-          <li><a href="consulting.html#drug-development">Drug Development</a></li>
-          <li><a href="consulting.html#device-development">Device Development</a></li>
-          <li><a href="consulting.html#clients">Client Sectors</a></li>
-          <li><a href="consulting.html#engagements">Engagement Models</a></li>
-          <li><a href="consulting.html#speaking">Speaking &amp; Education</a></li>
-          <li class="dd-div"></li>
-          <li><a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener">🔒 BRCAI Research Portal</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="care-delivery.html">Care Delivery</a>
-        <ul class="nav-dropdown">
-          <li><a href="care-delivery.html">Care Delivery Overview</a></li>
-          <li class="dd-div"></li>
-          <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li>
-          <li><a href="care-delivery.html#service-lines">Primary Care</a></li>
-          <li><a href="care-delivery.html#philosophy">Clinical Philosophy</a></li>
-          <li><a href="care-delivery.html#notify">Interest Registration</a></li>
-          <li class="dd-div"></li>
-          <li><a href="#">&#9679; Patient Portal</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="team.html" class="active">Leadership</a>
-        <ul class="nav-dropdown">
-          <li><a href="team.html">Team Overview</a></li>
-          <li class="dd-div"></li>
-          <li><a href="team.html#belotte">Dr. Jimmy Belotte</a></li>
-          <li><a href="team.html#alexis">Dr. Mitchell Alexis</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="index.html#about">About</a>
-        <ul class="nav-dropdown">
-          <li><a href="index.html#about">Company Overview</a></li>
-          <li class="dd-div"></li>
-          <li><a href="index.html#segments">Our Segments</a></li>
-          <li><a href="index.html#values">Mission &amp; Values</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </li>
-      <li><a href="mailto:consulting@negplushealth.com" class="nav-cta">Engage Now</a></li>
-    </ul>
-    <button class="hamburger" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<body> <!-- NAV -->
+<nav> <div class="nav-inner"> <a class="nav-logo" href="index.html"> <img src="logo_nav.png" alt="NEG+ PLLC"> <span class="nav-logo-sub">New England<br>Gynecology Plus</span> </a> <ul class="nav-links"> <li> <a href="services.html">Services</a> <ul class="nav-dropdown"> <li><a href="services.html">Services Overview</a></li> <li class="dd-div"></li> <li><a href="consulting.html">Consulting &amp; Advisory</a></li> <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li> <li><a href="care-delivery.html#service-lines">Primary Care</a></li> </ul> </li> <li> <a href="consulting.html">Consulting</a> <ul class="nav-dropdown"> <li><a href="consulting.html">Consulting Overview</a></li> <li class="dd-div"></li> <li><a href="consulting.html#convergence">Integration Advantage</a></li> <li><a href="consulting.html#capabilities">Capabilities</a></li> <li><a href="consulting.html#drug-development">Drug Development</a></li> <li><a href="consulting.html#device-development">Device Development</a></li> <li><a href="consulting.html#clients">Client Sectors</a></li> <li><a href="consulting.html#engagements">Engagement Models</a></li> <li><a href="consulting.html#speaking">Speaking &amp; Education</a></li> <li class="dd-div"></li> <li><a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener"> BRCAI Research Portal</a></li> </ul> </li> <li> <a href="care-delivery.html">Care Delivery</a> <ul class="nav-dropdown"> <li><a href="care-delivery.html">Care Delivery Overview</a></li> <li class="dd-div"></li> <li><a href="care-delivery.html#service-lines">OBGYN &amp; Women's Health</a></li> <li><a href="care-delivery.html#service-lines">Primary Care</a></li> <li><a href="care-delivery.html#philosophy">Clinical Philosophy</a></li> <li><a href="care-delivery.html#notify">Interest Registration</a></li> <li class="dd-div"></li> <li><a href="#">&#9679; Patient Portal</a></li> </ul> </li> <li> <a href="team.html" class="active">Leadership</a> <ul class="nav-dropdown"> <li><a href="team.html">Team Overview</a></li> <li class="dd-div"></li> <li><a href="team.html#belotte">Dr. Jimmy Belotte</a></li> <li><a href="team.html#alexis">Dr. Mitchell Alexis</a></li> </ul> </li> <li> <a href="index.html#about">About</a> <ul class="nav-dropdown"> <li><a href="index.html#about">Company Overview</a></li> <li class="dd-div"></li> <li><a href="index.html#segments">Our Segments</a></li> <li><a href="index.html#values">Mission &amp; Values</a></li> <li><a href="index.html#contact">Contact</a></li> </ul> </li> <li><a href="mailto:consulting@negplushealth.com" class="nav-cta">Engage Now</a></li> </ul> <button class="hamburger" id="ham" aria-label="Menu"> <span></span><span></span><span></span> </button> </div>
 </nav>
-<div class="mobile-menu" id="mob">
-  <a href="services.html">Services</a>
-  <a href="consulting.html">Consulting</a>
-  <a href="care-delivery.html">Care Delivery</a>
-  <a href="team.html">Leadership</a>
-  <a href="index.html#about">About</a>
-  <a href="mailto:consulting@negplushealth.com" class="m-cta">Engage Now</a>
-  <a href="#" style="font-size:0.85rem;color:var(--navy);border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem;font-weight:700">&#9679; Patient Portal</a>
-  <a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--gray-lt);padding-top:0.25rem">🔒 BRCAI Research Portal</a>
-</div>
-
-<!-- HERO -->
-<section class="page-hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Our Leadership</div>
-    <h1>Physician Leaders.<br><em>Dual Expertise.</em><br>Singular Vision.</h1>
-    <p class="hero-sub">NEG Plus PLLC is built on a model that is still rare in healthcare: physicians who hold advanced business training and operate fluently across clinical, strategic, and financial domains.</p>
-    <div class="hero-stats">
-      <div class="h-stat"><strong>MD + MBA</strong><span>Advanced dual credentials</span></div>
-      <div class="h-stat"><strong>Board-Certified</strong><span>Clinical excellence</span></div>
-      <div class="h-stat"><strong>2 Segments</strong><span>Consulting &amp; Care Delivery</span></div>
-      <div class="h-stat"><strong>2027</strong><span>Care delivery launch target</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER PROFILE -->
-<section class="section" id="belotte">
-  <div class="container">
-    <span class="section-label">Founder &amp; Managing Principal</span>
-    <h2 class="section-title">Dr. Jimmy <em>Belotte</em></h2>
-    <div class="divider"></div>
-    <div class="founder-grid fade-up">
-
-      <!-- Sticky card -->
-      <div class="founder-card">
-        <img src="headshot.jpg" alt="Dr. Jimmy Belotte" class="f-avatar" style="object-fit:cover;object-position:center 12%;border:3px solid var(--gold);box-shadow:0 4px 20px rgba(184,134,11,0.3);">
-        <h3>Dr. Jimmy Belotte</h3>
-        <div class="f-cred">MD, PhD, MBA · <a href="https://www.acog.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor">FACOG</a></div>
-        <div class="f-roles">
-          <div class="f-role">
-            <div class="f-role-ico">⚖️</div>
-            <div>
-              <div class="f-role-text">Founder &amp; Managing Principal</div>
-              <div class="f-role-sub">New England Gynecology Plus PLLC</div>
-            </div>
-          </div>
-          <div class="f-role">
-            <div class="f-role-ico">📊</div>
-            <div>
-              <div class="f-role-text">Consulting Lead</div>
-              <div class="f-role-sub">Strategic &amp; Clinical Advisory</div>
-            </div>
-          </div>
-          <div class="f-role">
-            <div class="f-role-ico">🏥</div>
-            <div>
-              <div class="f-role-text">OBGYN &amp; Women's Health Lead</div>
-              <div class="f-role-sub">Care Delivery Segment · Est. 2027</div>
-            </div>
-          </div>
-        </div>
-        <div class="f-contact">
-          <a href="mailto:consulting@negplushealth.com">Contact Dr. Belotte →</a>
-        </div>
-      </div>
-
-      <!-- Bio content -->
-      <div class="bio-section">
-
-        <div class="bio-block">
-          <h4>About</h4>
-          <p>Dr. Jimmy Belotte is a board-certified obstetrician-gynecologist and the founder and managing principal of New England Gynecology Plus PLLC. He brings together deep clinical expertise in women's health, gynecologic oncology, and minimally invasive surgery with rigorous business training — including an MBA with concentrations in healthcare management, corporate finance, and strategic management.</p>
-          <p>His career sits at the intersection of medicine, capital markets, and organizational leadership — serving health systems, biotech companies, academic medical centers, private equity investors, and C-suite and governance teams. Dr. Belotte's dual fluency — the clinical judgment of a practicing physician and the analytical sophistication of a trained strategist — is the defining foundation of NEG Plus PLLC.</p>
-        </div>
-
-        <div class="bio-block">
-          <h4>Education &amp; Training</h4>
-          <div class="edu-grid">
-            <div class="edu-item">
-              <h5>Doctor of Medicine (MD)</h5>
-              <p>Medical School · Clinical training in obstetrics, gynecology, and women's health</p>
-            </div>
-            <div class="edu-item">
-              <h5>Master of Business Administration (MBA)</h5>
-              <p>Concentrations: Healthcare Management · Corporate Finance · Strategic Management</p>
-            </div>
-            <div class="edu-item">
-              <h5>OBGYN Residency</h5>
-              <p>Board-certified in obstetrics and gynecology · Advanced laparoscopic and minimally invasive surgery</p>
-            </div>
-            <div class="edu-item">
-              <h5>Subspecialty Training</h5>
-              <p>Gynecologic oncology · Complex pelvic surgery · High-risk obstetrics</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bio-block">
-          <h4>Consulting Practice Focus</h4>
-          <p>Dr. Belotte's consulting practice encompasses the full arc of strategic and financial decision-making in healthcare. He advises organizations on clinical strategy, market positioning, regulatory navigation, and institutional transformation — with particular depth in women's health, oncology, and the rapid commercialization of novel medical technologies.</p>
-          <div class="exp-list">
-            <div class="exp-item">
-              <div class="exp-ico">🏗️</div>
-              <div>
-                <h5>Health System Strategy</h5>
-                <p>Organizational design, service-line optimization, competitive positioning, and transformation advisory for health systems and academic medical centers navigating complex market dynamics.</p>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-ico">💡</div>
-              <div>
-                <h5>Innovation &amp; Commercialization</h5>
-                <p>End-to-end strategy from concept to market — clinical validation design, FDA/CMS regulatory strategy, reimbursement pathway analysis, and go-to-market execution for biotech and MedTech organizations.</p>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-ico">📈</div>
-              <div>
-                <h5>Financial &amp; Investment Advisory</h5>
-                <p>Capital allocation, valuation modeling, M&amp;A due diligence, risk-adjusted portfolio strategy, and investment decision support for private equity and institutional healthcare investors.</p>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-ico">🎓</div>
-              <div>
-                <h5>Executive &amp; Board Advisory</h5>
-                <p>Strategic counsel, executive coaching, and board-level governance guidance for physician executives and senior leadership teams navigating high-stakes decisions and organizational influence.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bio-block">
-          <h4>Areas of Expertise</h4>
-          <div class="chip-wrap">
-            <span class="chip">Women's Health Strategy</span>
-            <span class="chip">Gynecologic Oncology</span>
-            <span class="chip">Minimally Invasive Surgery</span>
-            <span class="chip">Financial Modeling &amp; Valuation</span>
-            <span class="chip">Healthcare Innovation</span>
-            <span class="chip">FDA / CMS Regulatory Strategy</span>
-            <span class="chip">Organizational Design</span>
-            <span class="chip">Private Equity Advisory</span>
-            <span class="chip">Clinical Trial Strategy</span>
-            <span class="chip">Biotech / MedTech</span>
-            <span class="chip">Executive Coaching</span>
-            <span class="chip">Board Advisory</span>
-            <span class="chip">Reimbursement &amp; Coverage</span>
-            <span class="chip">M&amp;A Due Diligence</span>
-            <span class="chip">Expert Witness</span>
-          </div>
-        </div>
-
-      </div><!-- /bio-section -->
-    </div><!-- /founder-grid -->
-  </div>
-</section>
-
-<!-- CARE DELIVERY PHYSICIAN -->
-<section class="section alt" id="alexis">
-  <div class="container">
-    <span class="section-label">Care Delivery · Primary Care Lead</span>
-    <h2 class="section-title">Dr. Mitchell <em>Alexis</em></h2>
-    <div class="divider"></div>
-    <p class="lead">Joining NEG Plus PLLC's care delivery platform at launch, Dr. Alexis will lead the primary care service line — bringing patient-centered, evidence-driven medicine to the New England region alongside Dr. Belotte's OBGYN practice.</p>
-    <div class="cd-grid fade-up" style="margin-top:2.5rem">
-
-      <div class="cd-profile">
-        <div class="cd-avatar">MA</div>
-        <h3>Dr. Mitchell Alexis</h3>
-        <div class="cd-cred">MD, MS · Primary Care Physician · Care Delivery Lead</div>
-        <p>Dr. Mitchell Alexis is a primary care physician joining NEG Plus PLLC as the founding lead of the Primary Care service line within the care delivery segment. Her clinical practice is grounded in comprehensive, longitudinal, patient-centered medicine — building lasting relationships and managing the full spectrum of adult primary care needs.</p>
-        <p>Dr. Alexis's focus encompasses preventive care, chronic disease management, and care coordination — with a commitment to the kind of unhurried, high-quality physician-patient relationships that define the NEG Plus PLLC clinical philosophy.</p>
-        <div class="soon-badge">
-          <div class="sdot"></div>
-          In Development · Anticipated Launch 2027
-        </div>
-      </div>
-
-      <div class="cd-context">
-        <div>
-          <h4>Primary Care at NEG Plus PLLC</h4>
-          <p>The primary care service line is being designed from the ground up alongside the OBGYN &amp; Women's Health practice — enabling a coordinated, whole-person model of care that is still rare in the region.</p>
-          <p>Dr. Alexis and Dr. Belotte will collaborate closely across service lines, ensuring seamless transitions and integrated care plans for patients with complex or overlapping needs.</p>
-        </div>
-        <div class="cd-milestones">
-          <div class="cd-ms done">
-            <div class="cd-ms-dot"></div>
-            <div><strong>Founding team established</strong> — Dr. Alexis named Primary Care Lead</div>
-          </div>
-          <div class="cd-ms done">
-            <div class="cd-ms-dot"></div>
-            <div><strong>Clinical philosophy developed</strong> — care model defined</div>
-          </div>
-          <div class="cd-ms active">
-            <div class="cd-ms-dot"></div>
-            <div><strong>Practice design underway</strong> — workflow, technology, and partnerships</div>
-          </div>
-          <div class="cd-ms">
-            <div class="cd-ms-dot"></div>
-            <div><strong>Credentialing &amp; licensure</strong> — anticipated 2026</div>
-          </div>
-          <div class="cd-ms">
-            <div class="cd-ms-dot"></div>
-            <div><strong>Patient panel opens</strong> — target launch 2027</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SHARED CLINICAL PHILOSOPHY / VALUES -->
-<section class="section dark">
-  <div class="container">
-    <span class="section-label" style="color:var(--navy-light)">Our Principles</span>
-    <h2 class="section-title">What <em>Guides</em> Us</h2>
-    <div class="divider"></div>
-    <p class="lead light">Across both consulting and care delivery, NEG Plus PLLC is held together by a set of principles that are non-negotiable — in how we advise, how we practice, and how we build.</p>
-    <div class="values-grid fade-up">
-      <div class="val-card">
-        <div class="val-ico">🔬</div>
-        <h4>Evidence Over Opinion</h4>
-        <p>Every recommendation — clinical or strategic — is grounded in data, peer-reviewed literature, and rigorous analysis. We do not guess.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">🤝</div>
-        <h4>Partnership Over Transaction</h4>
-        <p>Consulting clients and patients alike deserve advisors and physicians who are invested in their outcomes — not just their immediate request.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">💡</div>
-        <h4>Dual Fluency</h4>
-        <p>Medicine and business are not opposites. The ability to move between clinical judgment and financial analysis — without sacrificing depth in either — is what makes our model work.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">⚡</div>
-        <h4>Bias Toward Action</h4>
-        <p>Strategy without execution is just planning. We are built to move organizations, institutions, and eventually patients from insight to outcome.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">🧭</div>
-        <h4>Integrity in Complexity</h4>
-        <p>High-stakes decisions rarely have clean answers. We commit to intellectual honesty, transparent communication, and the courage to deliver difficult truths.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">🌱</div>
-        <h4>Equity by Design</h4>
-        <p>Women's health has historically been under-resourced. Our care delivery and consulting work is intentionally built to close gaps — in access, research, and outcomes.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">🏆</div>
-        <h4>Excellence Without Compromise</h4>
-        <p>The standard we hold ourselves to in clinical care is the same standard we apply in every strategic engagement. Good enough is not our benchmark.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-ico">🔭</div>
-        <h4>Long-Term Thinking</h4>
-        <p>We build things meant to last — practices, organizations, and strategic frameworks that will serve our clients and patients for years, not quarters.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GROWING TEAM -->
-<section class="section alt">
-  <div class="container">
-    <span class="section-label">Building the Team</span>
-    <h2 class="section-title">A Practice <em>Built to Grow</em></h2>
-    <div class="divider"></div>
-    <p class="lead">NEG Plus PLLC is actively building the infrastructure for a world-class care delivery practice. As we approach our 2027 launch, we will expand our clinical and operational team with individuals who share our commitment to evidence-based, patient-centered care.</p>
-    <div class="grow-grid fade-up">
-      <div class="grow-card">
-        <div class="grow-ico">👩‍⚕️</div>
-        <h4>Advanced Practice Providers</h4>
-        <p>Nurse practitioners and physician assistants specializing in women's health and primary care — expanding access and continuity.</p>
-      </div>
-      <div class="grow-card">
-        <div class="grow-ico">🔬</div>
-        <h4>Clinical Support Staff</h4>
-        <p>Dedicated clinical support teams trained to deliver the NEG Plus PLLC standard of personalized, unhurried patient interaction.</p>
-      </div>
-      <div class="grow-card">
-        <div class="grow-ico">⚙️</div>
-        <h4>Operations &amp; Administration</h4>
-        <p>Practice management, scheduling, billing, and care coordination infrastructure built for efficiency and a seamless patient experience.</p>
-      </div>
-    </div>
-    <p style="margin-top:2rem;font-size:0.85rem;color:var(--gray-lt);text-align:center">Interested in joining our team? <a href="mailto:consulting@negplushealth.com" style="color:var(--gold);font-weight:600;text-decoration:none">Reach out →</a></p>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-strip">
-  <div class="container">
-    <h2>Work With <em>Our Team</em></h2>
-    <p>Whether you need strategic advisory services today or want to be among the first patients through our doors in 2027 — we want to hear from you.</p>
-    <div class="cta-btns">
-      <a href="mailto:consulting@negplushealth.com" class="btn btn-gold">Engage Consulting</a>
-      <a href="care-delivery.html#register" class="btn btn-ghost-dark">Register for Care Delivery</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="logo_nav.png" class="f-logo" alt="NEG+ PLLC">
-      <p>New England Gynecology Plus PLLC — physician-led consulting and care delivery, serving clients across New England and beyond.</p>
-      <p class="f-note">NEG Plus PLLC is a registered Professional LLC. Care delivery services are in pre-launch development; anticipated launch 2027.</p>
-    </div>
-    <div class="footer-col"><h5>Navigate</h5><a href="index.html">Home</a><a href="services.html">Services</a><a href="consulting.html">Consulting</a><a href="care-delivery.html">Care Delivery</a><a href="team.html">Leadership</a></div>
-    <div class="footer-col"><h5>Our Team</h5><a href="#belotte">Dr. Jimmy Belotte</a><a href="#alexis">Dr. Mitchell Alexis</a><a href="consulting.html">Consulting Services</a><a href="care-delivery.html">Care Delivery</a></div>
-    <div class="footer-col"><h5>Contact</h5><a href="mailto:consulting@negplushealth.com">consulting@negplushealth.com</a><a href="care-delivery.html#register">Interest Registration</a><a href="index.html#contact">General Inquiries</a></div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 New England Gynecology Plus PLLC. All rights reserved. This website is for informational purposes only and does not constitute medical advice.</div>
-    <div style="color:rgba(255,255,255,0.22);font-size:0.7rem;white-space:nowrap">NEG Plus PLLC</div>
-  </div>
-</footer>
-
-<script>
-  const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-  document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
-  const fo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fo.unobserve(e.target)}})},{threshold:0.1});
-  document.querySelectorAll('.fade-up').forEach(el=>fo.observe(el));
+<div class="mobile-menu" id="mob"> <a href="services.html">Services</a> <a href="consulting.html">Consulting</a> <a href="care-delivery.html">Care Delivery</a> <a href="team.html">Leadership</a> <a href="index.html#about">About</a> <a href="mailto:consulting@negplushealth.com" class="m-cta">Engage Now</a> <a href="#" style="font-size:0.85rem;color:var(--navy);border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem;font-weight:700">&#9679; Patient Portal</a> <a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--gray-lt);padding-top:0.25rem"> BRCAI Research Portal</a>
+</div> <!-- HERO -->
+<section class="page-hero"> <div class="hero-inner"> <div class="eyebrow">Our Leadership</div> <h1>Physician Leaders.<br><em>Dual Expertise.</em><br>Singular Vision.</h1> <p class="hero-sub">NEG Plus PLLC is built on a model that is still rare in healthcare: physicians who hold advanced business training and operate fluently across clinical, strategic, and financial domains.</p> <div class="hero-stats"> <div class="h-stat"><strong>MD + MBA</strong><span>Advanced dual credentials</span></div> <div class="h-stat"><strong>Board-Certified</strong><span>Clinical excellence</span></div> <div class="h-stat"><strong>2 Segments</strong><span>Consulting &amp; Care Delivery</span></div> <div class="h-stat"><strong>2027</strong><span>Care delivery launch target</span></div> </div> </div>
+</section> <!-- FOUNDER PROFILE -->
+<section class="section" id="belotte"> <div class="container"> <span class="section-label">Founder &amp; Managing Principal</span> <h2 class="section-title">Dr. Jimmy <em>Belotte</em></h2> <div class="divider"></div> <div class="founder-grid fade-up"> <!-- Sticky card --> <div class="founder-card"> <img src="headshot.jpg" alt="Dr. Jimmy Belotte" class="f-avatar" style="object-fit:cover;object-position:center 12%;border:3px solid var(--gold);box-shadow:0 4px 20px rgba(184,134,11,0.3);"> <h3>Dr. Jimmy Belotte</h3> <div class="f-cred">MD, PhD, MBA · <a href="https://www.acog.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor">FACOG</a></div> <div class="f-roles"> <div class="f-role"> <div class="f-role-ico"></div> <div> <div class="f-role-text">Founder &amp; Managing Principal</div> <div class="f-role-sub">New England Gynecology Plus PLLC</div> </div> </div> <div class="f-role"> <div class="f-role-ico"></div> <div> <div class="f-role-text">Consulting Lead</div> <div class="f-role-sub">Strategic &amp; Clinical Advisory</div> </div> </div> <div class="f-role"> <div class="f-role-ico"></div> <div> <div class="f-role-text">OBGYN &amp; Women's Health Lead</div> <div class="f-role-sub">Care Delivery Segment · Est. 2027</div> </div> </div> </div> <div class="f-contact"> <a href="mailto:consulting@negplushealth.com">Contact Dr. Belotte →</a> </div> </div> <!-- Bio content --> <div class="bio-section"> <div class="bio-block"> <h4>About</h4> <p>Dr. Jimmy Belotte is a board-certified obstetrician-gynecologist and the founder and managing principal of New England Gynecology Plus PLLC. He brings together deep clinical expertise in women's health, gynecologic oncology, and minimally invasive surgery with rigorous business training — including an MBA with concentrations in healthcare management, corporate finance, and strategic management.</p> <p>His career sits at the intersection of medicine, capital markets, and organizational leadership — serving health systems, biotech companies, academic medical centers, private equity investors, and C-suite and governance teams. Dr. Belotte's dual fluency — the clinical judgment of a practicing physician and the analytical sophistication of a trained strategist — is the defining foundation of NEG Plus PLLC.</p> </div> <div class="bio-block"> <h4>Education &amp; Training</h4> <div class="edu-grid"> <div class="edu-item"> <h5>Doctor of Medicine (MD)</h5> <p>Medical School · Clinical training in obstetrics, gynecology, and women's health</p> </div> <div class="edu-item"> <h5>Master of Business Administration (MBA)</h5> <p>Concentrations: Healthcare Management · Corporate Finance · Strategic Management</p> </div> <div class="edu-item"> <h5>OBGYN Residency</h5> <p>Board-certified in obstetrics and gynecology · Advanced laparoscopic and minimally invasive surgery</p> </div> <div class="edu-item"> <h5>Subspecialty Training</h5> <p>Gynecologic oncology · Complex pelvic surgery · High-risk obstetrics</p> </div> </div> </div> <div class="bio-block"> <h4>Consulting Practice Focus</h4> <p>Dr. Belotte's consulting practice encompasses the full arc of strategic and financial decision-making in healthcare. He advises organizations on clinical strategy, market positioning, regulatory navigation, and institutional transformation — with particular depth in women's health, oncology, and the rapid commercialization of novel medical technologies.</p> <div class="exp-list"> <div class="exp-item"> <div class="exp-ico"></div> <div> <h5>Health System Strategy</h5> <p>Organizational design, service-line optimization, competitive positioning, and transformation advisory for health systems and academic medical centers navigating complex market dynamics.</p> </div> </div> <div class="exp-item"> <div class="exp-ico"></div> <div> <h5>Innovation &amp; Commercialization</h5> <p>End-to-end strategy from concept to market — clinical validation design, FDA/CMS regulatory strategy, reimbursement pathway analysis, and go-to-market execution for biotech and MedTech organizations.</p> </div> </div> <div class="exp-item"> <div class="exp-ico"></div> <div> <h5>Financial &amp; Investment Advisory</h5> <p>Capital allocation, valuation modeling, M&amp;A due diligence, risk-adjusted portfolio strategy, and investment decision support for private equity and institutional healthcare investors.</p> </div> </div> <div class="exp-item"> <div class="exp-ico"></div> <div> <h5>Executive &amp; Board Advisory</h5> <p>Strategic counsel, executive coaching, and board-level governance guidance for physician executives and senior leadership teams navigating high-stakes decisions and organizational influence.</p> </div> </div> </div> </div> <div class="bio-block"> <h4>Areas of Expertise</h4> <div class="chip-wrap"> <span class="chip">Women's Health Strategy</span> <span class="chip">Gynecologic Oncology</span> <span class="chip">Minimally Invasive Surgery</span> <span class="chip">Financial Modeling &amp; Valuation</span> <span class="chip">Healthcare Innovation</span> <span class="chip">FDA / CMS Regulatory Strategy</span> <span class="chip">Organizational Design</span> <span class="chip">Private Equity Advisory</span> <span class="chip">Clinical Trial Strategy</span> <span class="chip">Biotech / MedTech</span> <span class="chip">Executive Coaching</span> <span class="chip">Board Advisory</span> <span class="chip">Reimbursement &amp; Coverage</span> <span class="chip">M&amp;A Due Diligence</span> <span class="chip">Expert Witness</span> </div> </div> </div><!-- /bio-section --> </div><!-- /founder-grid --> </div>
+</section> <!-- PROFESSIONAL AFFILIATIONS -->
+<section class="section alt" id="affiliations"> <div class="container"> <span class="section-label">Professional Affiliations</span> <h2 class="section-title">Member <em>Organizations</em></h2> <div class="divider"></div> <p class="lead">Dr. Belotte maintains active membership and engagement with the leading professional societies in women's health, gynecology, and maternal-fetal medicine.</p> <div class="org-grid fade-up"> <div class="org-card"> <div class="org-abbr">ACOG</div> <div class="org-name">American College of Obstetricians and Gynecologists</div> <div class="org-desc">The nation's leading organization for OB-GYN professionals, setting clinical standards, practice guidelines, and advocacy in women's health.</div> <a href="https://www.acog.org" class="org-link" target="_blank" rel="noopener">acog.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">AAGL</div> <div class="org-name">American Association of Gynecologic Laparoscopists</div> <div class="org-desc">Global society advancing minimally invasive gynecologic surgery through education, research, and clinical innovation.</div> <a href="https://www.aagl.org" class="org-link" target="_blank" rel="noopener">aagl.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">SGO</div> <div class="org-name">Society of Gynecologic Oncology</div> <div class="org-desc">Dedicated to advancing the care of women with gynecologic cancers through education, research, and advocacy across the cancer care continuum.</div> <a href="https://www.sgo.org" class="org-link" target="_blank" rel="noopener">sgo.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">ASCCP</div> <div class="org-name">American Society for Colposcopy and Cervical Pathology</div> <div class="org-desc">Leading authority on evidence-based guidelines for cervical cancer screening, colposcopy, and management of cervical disease.</div> <a href="https://www.asccp.org" class="org-link" target="_blank" rel="noopener">asccp.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">SMFM</div> <div class="org-name">Society for Maternal-Fetal Medicine</div> <div class="org-desc">The premier organization for high-risk obstetrics specialists, advancing the care of women with complex pregnancy conditions.</div> <a href="https://www.smfm.org" class="org-link" target="_blank" rel="noopener">smfm.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">SASGOG</div> <div class="org-name">Society of Academic Specialists in General Obstetrics and Gynecology</div> <div class="org-desc">Representing academic generalist OB-GYNs committed to education, clinical excellence, and research in general gynecology and obstetrics.</div> <a href="https://sasgog.org" class="org-link" target="_blank" rel="noopener">sasgog.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">March of Dimes</div> <div class="org-name">March of Dimes</div> <div class="org-desc">Nonprofit leader in maternal and infant health — driving research, advocacy, and programs to end preventable maternal and infant death.</div> <a href="https://www.marchofdimes.org" class="org-link" target="_blank" rel="noopener">marchofdimes.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">The Menopause Society</div> <div class="org-name">The Menopause Society (NAMS)</div> <div class="org-desc">Advancing the health and quality of life of women during midlife and beyond through multidisciplinary education, research, and evidence-based clinical practice.</div> <a href="https://www.menopause.org" class="org-link" target="_blank" rel="noopener">menopause.org ↗</a> </div> <div class="org-card"> <div class="org-abbr">AWHONN</div> <div class="org-name">Association of Women's Health, Obstetric and Neonatal Nurses</div> <div class="org-desc">Promoting excellence in nursing practice to improve the health of women and newborns across the care continuum.</div> <a href="https://www.awhonn.org" class="org-link" target="_blank" rel="noopener">awhonn.org ↗</a> </div> </div> </div>
+</section> <!-- CARE DELIVERY PHYSICIAN -->
+<section class="section alt" id="alexis"> <div class="container"> <span class="section-label">Care Delivery · Primary Care Lead</span> <h2 class="section-title">Dr. Mitchell <em>Alexis</em></h2> <div class="divider"></div> <p class="lead">Joining NEG Plus PLLC's care delivery platform at launch, Dr. Alexis will lead the primary care service line — bringing patient-centered, evidence-driven medicine to the New England region alongside Dr. Belotte's OBGYN practice.</p> <div class="cd-grid fade-up" style="margin-top:2.5rem"> <div class="cd-profile"> <div class="cd-avatar">MA</div> <h3>Dr. Mitchell Alexis</h3> <div class="cd-cred">MD, MS · Primary Care Physician · Care Delivery Lead</div> <p>Dr. Mitchell Alexis is a primary care physician joining NEG Plus PLLC as the founding lead of the Primary Care service line within the care delivery segment. Her clinical practice is grounded in comprehensive, longitudinal, patient-centered medicine — building lasting relationships and managing the full spectrum of adult primary care needs.</p> <p>Dr. Alexis's focus encompasses preventive care, chronic disease management, and care coordination — with a commitment to the kind of unhurried, high-quality physician-patient relationships that define the NEG Plus PLLC clinical philosophy.</p> <div class="soon-badge"> <div class="sdot"></div> In Development · Anticipated Launch 2027
+ </div> </div> <div class="cd-context"> <div> <h4>Primary Care at NEG Plus PLLC</h4> <p>The primary care service line is being designed from the ground up alongside the OBGYN &amp; Women's Health practice — enabling a coordinated, whole-person model of care that is still rare in the region.</p> <p>Dr. Alexis and Dr. Belotte will collaborate closely across service lines, ensuring seamless transitions and integrated care plans for patients with complex or overlapping needs.</p> </div> <div class="cd-milestones"> <div class="cd-ms done"> <div class="cd-ms-dot"></div> <div><strong>Founding team established</strong> — Dr. Alexis named Primary Care Lead</div> </div> <div class="cd-ms done"> <div class="cd-ms-dot"></div> <div><strong>Clinical philosophy developed</strong> — care model defined</div> </div> <div class="cd-ms active"> <div class="cd-ms-dot"></div> <div><strong>Practice design underway</strong> — workflow, technology, and partnerships</div> </div> <div class="cd-ms"> <div class="cd-ms-dot"></div> <div><strong>Credentialing &amp; licensure</strong> — anticipated 2026</div> </div> <div class="cd-ms"> <div class="cd-ms-dot"></div> <div><strong>Patient panel opens</strong> — target launch 2027</div> </div> </div> </div> </div> </div>
+</section> <!-- SHARED CLINICAL PHILOSOPHY / VALUES -->
+<section class="section dark"> <div class="container"> <span class="section-label" style="color:var(--navy-light)">Our Principles</span> <h2 class="section-title">What <em>Guides</em> Us</h2> <div class="divider"></div> <p class="lead light">Across both consulting and care delivery, NEG Plus PLLC is held together by a set of principles that are non-negotiable — in how we advise, how we practice, and how we build.</p> <div class="values-grid fade-up"> <div class="val-card"> <div class="val-ico"></div> <h4>Evidence Over Opinion</h4> <p>Every recommendation — clinical or strategic — is grounded in data, peer-reviewed literature, and rigorous analysis. We do not guess.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Partnership Over Transaction</h4> <p>Consulting clients and patients alike deserve advisors and physicians who are invested in their outcomes — not just their immediate request.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Dual Fluency</h4> <p>Medicine and business are not opposites. The ability to move between clinical judgment and financial analysis — without sacrificing depth in either — is what makes our model work.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Bias Toward Action</h4> <p>Strategy without execution is just planning. We are built to move organizations, institutions, and eventually patients from insight to outcome.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Integrity in Complexity</h4> <p>High-stakes decisions rarely have clean answers. We commit to intellectual honesty, transparent communication, and the courage to deliver difficult truths.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Equity by Design</h4> <p>Women's health has historically been under-resourced. Our care delivery and consulting work is intentionally built to close gaps — in access, research, and outcomes.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Excellence Without Compromise</h4> <p>The standard we hold ourselves to in clinical care is the same standard we apply in every strategic engagement. Good enough is not our benchmark.</p> </div> <div class="val-card"> <div class="val-ico"></div> <h4>Long-Term Thinking</h4> <p>We build things meant to last — practices, organizations, and strategic frameworks that will serve our clients and patients for years, not quarters.</p> </div> </div> </div>
+</section> <!-- GROWING TEAM -->
+<section class="section alt"> <div class="container"> <span class="section-label">Building the Team</span> <h2 class="section-title">A Practice <em>Built to Grow</em></h2> <div class="divider"></div> <p class="lead">NEG Plus PLLC is actively building the infrastructure for a world-class care delivery practice. As we approach our 2027 launch, we will expand our clinical and operational team with individuals who share our commitment to evidence-based, patient-centered care.</p> <div class="grow-grid fade-up"> <div class="grow-card"> <div class="grow-ico">‍</div> <h4>Advanced Practice Providers</h4> <p>Nurse practitioners and physician assistants specializing in women's health and primary care — expanding access and continuity.</p> </div> <div class="grow-card"> <div class="grow-ico"></div> <h4>Clinical Support Staff</h4> <p>Dedicated clinical support teams trained to deliver the NEG Plus PLLC standard of personalized, unhurried patient interaction.</p> </div> <div class="grow-card"> <div class="grow-ico"></div> <h4>Operations &amp; Administration</h4> <p>Practice management, scheduling, billing, and care coordination infrastructure built for efficiency and a seamless patient experience.</p> </div> </div> <p style="margin-top:2rem;font-size:0.85rem;color:var(--gray-lt);text-align:center">Interested in joining our team? <a href="mailto:consulting@negplushealth.com" style="color:var(--gold);font-weight:600;text-decoration:none">Reach out →</a></p> </div>
+</section> <!-- CTA -->
+<section class="cta-strip"> <div class="container"> <h2>Work With <em>Our Team</em></h2> <p>Whether you need strategic advisory services today or want to be among the first patients through our doors in 2027 — we want to hear from you.</p> <div class="cta-btns"> <a href="mailto:consulting@negplushealth.com" class="btn btn-gold">Engage Consulting</a> <a href="care-delivery.html#register" class="btn btn-ghost-dark">Register for Care Delivery</a> </div> </div>
+</section> <footer> <div class="footer-inner"> <div class="footer-brand"> <img src="logo_nav.png" class="f-logo" alt="NEG+ PLLC"> <p>New England Gynecology Plus PLLC — physician-led consulting and care delivery, serving clients across New England and beyond.</p> <p class="f-note">NEG Plus PLLC is a registered Professional LLC. Care delivery services are in pre-launch development; anticipated launch 2027.</p> </div> <div class="footer-col"><h5>Navigate</h5><a href="index.html">Home</a><a href="services.html">Services</a><a href="consulting.html">Consulting</a><a href="care-delivery.html">Care Delivery</a><a href="team.html">Leadership</a></div> <div class="footer-col"><h5>Our Team</h5><a href="#belotte">Dr. Jimmy Belotte</a><a href="#alexis">Dr. Mitchell Alexis</a><a href="consulting.html">Consulting Services</a><a href="care-delivery.html">Care Delivery</a></div> <div class="footer-col"><h5>Contact</h5><a href="mailto:consulting@negplushealth.com">consulting@negplushealth.com</a><a href="care-delivery.html#register">Interest Registration</a><a href="index.html#contact">General Inquiries</a></div> <div class="footer-col"><h5>Organizations</h5><a href="https://www.acog.org" target="_blank" rel="noopener">ACOG</a><a href="https://www.aagl.org" target="_blank" rel="noopener">AAGL</a><a href="https://www.sgo.org" target="_blank" rel="noopener">SGO</a><a href="https://www.asccp.org" target="_blank" rel="noopener">ASCCP</a><a href="https://www.smfm.org" target="_blank" rel="noopener">SMFM</a><a href="https://sasgog.org" target="_blank" rel="noopener">SASGOG</a><a href="https://www.marchofdimes.org" target="_blank" rel="noopener">March of Dimes</a><a href="https://www.menopause.org" target="_blank" rel="noopener">The Menopause Society</a><a href="https://www.awhonn.org" target="_blank" rel="noopener">AWHONN</a></div> </div> <div class="footer-bottom"> <div class="footer-copy">© 2026 New England Gynecology Plus PLLC. All rights reserved. This website is for informational purposes only and does not constitute medical advice.</div> <div style="color:rgba(255,255,255,0.22);font-size:0.7rem;white-space:nowrap">NEG Plus PLLC</div> </div>
+</footer> <script> const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+ document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+ const fo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fo.unobserve(e.target)}})},{threshold:0.1});
+ document.querySelectorAll('.fade-up').forEach(el=>fo.observe(el));
 </script>
 </body>
 </html>
