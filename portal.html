@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Portal — NEG Plus PLLC</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.png">
+  <!-- Microsoft Authentication Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
+  <style>
+    :root {
+      --black:    #111111;
+      --navy:     #1B2E59;
+      --navy-mid: #2D4475;
+      --navy-dk:  #0d1c3a;
+      --gold:     #B8860B;
+      --gold-lt:  #D4A830;
+      --gold-pale:#FBF5E0;
+      --cream:    #FAF8F3;
+      --gray:     #5A5A5A;
+      --gray-lt:  #8A8A8A;
+      --white:    #FFFFFF;
+      --border:   rgba(184,134,11,0.2);
+      --ms-blue:  #0078D4;
+      --ms-blue-dk:#005A9E;
+      --danger:   #C0392B;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { overflow-x:hidden; scroll-behavior:smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(150deg, var(--black) 0%, #1a1200 45%, var(--navy-dk) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(17,17,17,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top:0; z-index:100;
+    }
+    .nav-inner {
+      max-width:1280px; margin:0 auto; padding:0 2rem;
+      display:flex; align-items:center; justify-content:space-between;
+      height:68px;
+    }
+    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .nav-logo img { height:40px; width:auto; display:block; }
+    .nav-logo-sub { font-size:0.58rem; font-weight:700; color:var(--gold-lt); text-transform:uppercase; letter-spacing:2px; line-height:1.5; border-left:2px solid var(--gold); padding-left:12px; }
+    .nav-right { display:flex; align-items:center; gap:1rem; }
+    .nav-back { font-size:0.75rem; font-weight:600; color:rgba(255,255,255,0.4); text-decoration:none; text-transform:uppercase; letter-spacing:0.6px; transition:color 0.2s; }
+    .nav-back:hover { color:var(--gold-lt); }
+    .nav-user { display:none; align-items:center; gap:10px; }
+    .nav-user.visible { display:flex; }
+    .nav-avatar { width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--black); font-size:0.8rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nav-username { font-size:0.82rem; font-weight:600; color:var(--white); max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .btn-signout { font-size:0.72rem; font-weight:700; color:rgba(255,255,255,0.35); background:none; border:none; cursor:pointer; text-transform:uppercase; letter-spacing:0.6px; transition:color 0.2s; padding:0; font-family:inherit; }
+    .btn-signout:hover { color:#e57373; }
+
+    /* ── LOGIN VIEW ── */
+    #view-login { flex:1; display:flex; align-items:center; justify-content:center; padding:3rem 1.5rem; }
+    .login-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem 2.5rem;
+      width:100%; max-width:420px;
+      text-align:center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+    }
+    .login-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(184,134,11,0.12); border:1px solid rgba(184,134,11,0.3);
+      border-radius:50px; padding:5px 16px;
+      font-size:0.68rem; font-weight:700; letter-spacing:1.8px; text-transform:uppercase;
+      color:var(--gold-lt); margin-bottom:1.5rem;
+    }
+    .login-card h1 { font-size:clamp(1.5rem,4vw,2rem); font-weight:800; color:var(--white); line-height:1.2; margin-bottom:0.6rem; }
+    .login-card h1 span { color:var(--gold-lt); }
+    .login-card .subtitle { font-size:0.88rem; color:rgba(255,255,255,0.45); line-height:1.65; margin-bottom:2.25rem; }
+    .divider-line { width:40px; height:3px; background:var(--gold); border-radius:2px; margin:0 auto 2.25rem; }
+    .btn-ms {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; background:var(--ms-blue); color:var(--white);
+      border:none; border-radius:10px; padding:0.95rem 1.5rem;
+      font-size:0.97rem; font-weight:700; cursor:pointer; font-family:inherit;
+      transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow:0 4px 20px rgba(0,120,212,0.35);
+    }
+    .btn-ms:hover { background:var(--ms-blue-dk); transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,120,212,0.4); }
+    .btn-ms:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+    .login-error { margin-top:1rem; padding:0.7rem 1rem; background:rgba(192,57,43,0.12); border:1px solid rgba(192,57,43,0.3); border-radius:8px; font-size:0.78rem; color:#e57373; display:none; text-align:left; line-height:1.5; }
+    .login-error.visible { display:block; }
+    .login-note { margin-top:1.25rem; font-size:0.72rem; color:rgba(255,255,255,0.3); line-height:1.6; }
+    .login-note a { color:var(--gold-lt); text-decoration:none; }
+    .login-note a:hover { text-decoration:underline; }
+    .login-security { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(184,134,11,0.12); font-size:0.7rem; color:rgba(255,255,255,0.22); display:flex; align-items:center; justify-content:center; gap:6px; }
+
+    /* ── PORTAL VIEW ── */
+    #view-portal { display:none; flex:1; padding:2.5rem 2rem 4rem; max-width:1280px; margin:0 auto; width:100%; }
+    #view-portal.visible { display:block; }
+
+    .portal-welcome { margin-bottom:2.5rem; }
+    .portal-welcome .eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem; }
+    .portal-welcome h2 { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:var(--white); line-height:1.2; }
+    .portal-welcome .welcome-sub { font-size:0.9rem; color:rgba(255,255,255,0.4); margin-top:0.4rem; }
+
+    /* quick tiles */
+    .quick-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr)); gap:1rem; margin-bottom:3rem; }
+    .quick-tile {
+      background:rgba(255,255,255,0.05); border:1px solid var(--border);
+      border-radius:14px; padding:1.25rem 1rem;
+      text-align:center; text-decoration:none;
+      display:flex; flex-direction:column; align-items:center; gap:0.6rem;
+      transition:background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .quick-tile:hover { background:rgba(184,134,11,0.1); border-color:rgba(184,134,11,0.4); transform:translateY(-3px); }
+    .quick-tile span { font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.75); line-height:1.3; }
+
+    /* two-col layout */
+    .portal-cols { display:grid; grid-template-columns:1fr 320px; gap:2rem; align-items:start; }
+    @media(max-width:900px){ .portal-cols{ grid-template-columns:1fr; } }
+
+    /* cards */
+    .p-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:1.5rem; }
+    .p-card-head { padding:1.1rem 1.5rem 0.9rem; border-bottom:1px solid rgba(184,134,11,0.1); display:flex; align-items:center; gap:8px; }
+    .p-card-head h3 { font-size:0.85rem; font-weight:700; color:var(--white); letter-spacing:0.3px; flex:1; }
+    .p-card-link { font-size:0.72rem; font-weight:600; color:var(--gold); text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; }
+    .p-card-link:hover { color:var(--gold-lt); }
+    .p-card-body { padding:1.25rem 1.5rem; }
+
+    /* doc list */
+    .doc-list { list-style:none; display:flex; flex-direction:column; gap:0.75rem; }
+    .doc-item { display:flex; align-items:center; gap:0.85rem; padding:0.7rem 0.9rem; background:rgba(255,255,255,0.03); border:1px solid rgba(184,134,11,0.08); border-radius:10px; transition:background 0.15s, border-color 0.15s; }
+    .doc-item:hover { background:rgba(184,134,11,0.08); border-color:rgba(184,134,11,0.25); }
+    .doc-item a { text-decoration:none; flex:1; min-width:0; }
+    .doc-name { font-size:0.84rem; font-weight:600; color:var(--white); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .doc-meta { font-size:0.7rem; color:rgba(255,255,255,0.35); margin-top:2px; }
+    .doc-icon { flex-shrink:0; color:var(--gold); }
+
+    /* announcements */
+    .ann-list { list-style:none; display:flex; flex-direction:column; gap:0.85rem; }
+    .ann-item { padding:0.75rem 0; border-bottom:1px solid rgba(184,134,11,0.08); }
+    .ann-item:last-child { border-bottom:none; padding-bottom:0; }
+    .ann-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:5px; }
+    .ann-title { font-size:0.85rem; font-weight:600; color:var(--white); margin-bottom:0.25rem; line-height:1.4; }
+    .ann-date { font-size:0.7rem; color:rgba(255,255,255,0.35); }
+
+    /* badge */
+    .status-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(184,134,11,0.12); border:1px solid rgba(184,134,11,0.25); border-radius:50px; padding:3px 10px; font-size:0.68rem; font-weight:700; color:var(--gold-lt); text-transform:uppercase; letter-spacing:0.5px; }
+    .status-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); }
+
+    /* footer */
+    .portal-footer { text-align:center; padding:2rem; font-size:0.7rem; color:rgba(255,255,255,0.2); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_nav.png" alt="NEG Plus PLLC">
+      <div class="nav-logo-sub">Plus PLLC<br>Employee Portal</div>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">← Public Site</a>
+      <div class="nav-user" id="nav-user">
+        <div class="nav-avatar" id="nav-avatar">JB</div>
+        <span class="nav-username" id="nav-username"></span>
+        <button class="btn-signout" id="btn-signout">Sign out</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── LOGIN VIEW ── -->
+<div id="view-login">
+  <div class="login-card">
+    <div class="login-badge">Secure Access</div>
+    <h1>NEG Plus <span>PLLC</span></h1>
+    <p class="subtitle">Sign in with your @negplushealth.com Microsoft account to access the internal portal.</p>
+    <div class="divider-line"></div>
+
+    <button class="btn-ms" id="btn-login">
+      <svg width="20" height="20" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="9" height="9" fill="#f25022"/><rect x="11" y="1" width="9" height="9" fill="#7fba00"/><rect x="1" y="11" width="9" height="9" fill="#00a4ef"/><rect x="11" y="11" width="9" height="9" fill="#ffb900"/></svg>
+      Sign in with Microsoft
+    </button>
+
+    <div class="login-error" id="login-error"></div>
+
+    <p class="login-note">
+      Use your <strong style="color:rgba(255,255,255,0.5)">@negplushealth.com</strong> account only.<br>
+      Need access? <a href="mailto:jimmy.belotte@negplushealth.com">Contact Dr. Belotte</a>
+    </p>
+
+    <div class="login-security">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Secured by Microsoft Azure AD &middot; noindex
+    </div>
+  </div>
+</div>
+
+<!-- ── PORTAL VIEW ── -->
+<div id="view-portal">
+
+  <div class="portal-welcome">
+    <div class="eyebrow">Internal Portal</div>
+    <h2 id="welcome-name">Welcome back</h2>
+    <p class="welcome-sub" id="welcome-sub">NEG Plus PLLC &mdash; Consulting &amp; Care Delivery</p>
+  </div>
+
+  <!-- Quick Launch -->
+  <div class="quick-grid">
+    <a class="quick-tile" href="https://outlook.office.com/mail" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>Outlook Mail</span>
+    </a>
+    <a class="quick-tile" href="https://teams.microsoft.com" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Teams</span>
+    </a>
+    <a class="quick-tile" href="https://onedrive.live.com" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+      <span>OneDrive</span>
+    </a>
+    <a class="quick-tile" href="https://outlook.office.com/calendar" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Calendar</span>
+    </a>
+    <a class="quick-tile" href="https://admin.microsoft.com" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>M365 Admin</span>
+    </a>
+    <a class="quick-tile" href="consulting.html" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Consulting</span>
+    </a>
+    <a class="quick-tile" href="care-delivery.html" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <span>Care Delivery</span>
+    </a>
+    <a class="quick-tile" href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>BRCAI Repo</span>
+    </a>
+  </div>
+
+  <div class="portal-cols">
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <!-- Announcements -->
+      <div class="p-card">
+        <div class="p-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+          <h3>Announcements</h3>
+          <span class="status-badge"><span class="status-dot"></span>Active</span>
+        </div>
+        <div class="p-card-body">
+          <ul class="ann-list">
+            <li class="ann-item">
+              <div style="display:flex;gap:0.75rem">
+                <div class="ann-dot"></div>
+                <div>
+                  <div class="ann-title">Employee portal is live — welcome to the NEG Plus PLLC intranet</div>
+                  <div class="ann-date">May 2026</div>
+                </div>
+              </div>
+            </li>
+            <li class="ann-item">
+              <div style="display:flex;gap:0.75rem">
+                <div class="ann-dot"></div>
+                <div>
+                  <div class="ann-title">negplushealth.com launched — all consulting and care delivery pages live</div>
+                  <div class="ann-date">May 2026</div>
+                </div>
+              </div>
+            </li>
+            <li class="ann-item">
+              <div style="display:flex;gap:0.75rem">
+                <div class="ann-dot"></div>
+                <div>
+                  <div class="ann-title">Microsoft 365 email now active — use @negplushealth.com for all communications</div>
+                  <div class="ann-date">May 2026</div>
+                </div>
+              </div>
+            </li>
+            <li class="ann-item">
+              <div style="display:flex;gap:0.75rem">
+                <div class="ann-dot"></div>
+                <div>
+                  <div class="ann-title">Care delivery platform in development — anticipated patient launch 2027</div>
+                  <div class="ann-date">2026</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="p-card">
+        <div class="p-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <h3>Internal Resources</h3>
+          <a href="https://onedrive.live.com" class="p-card-link" target="_blank" rel="noopener">OneDrive</a>
+        </div>
+        <div class="p-card-body">
+          <ul class="doc-list">
+            <li class="doc-item">
+              <svg class="doc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <a href="https://outlook.office.com/mail/consulting@negplushealth.com" target="_blank" rel="noopener">
+                <div class="doc-name">Consulting Shared Inbox</div>
+                <div class="doc-meta">consulting@negplushealth.com &middot; Shared mailbox</div>
+              </a>
+            </li>
+            <li class="doc-item">
+              <svg class="doc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <a href="https://outlook.office.com/calendar" target="_blank" rel="noopener">
+                <div class="doc-name">Shared Calendar</div>
+                <div class="doc-meta">Outlook Calendar &middot; Microsoft 365</div>
+              </a>
+            </li>
+            <li class="doc-item">
+              <svg class="doc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener">
+                <div class="doc-name">BRCAI Research Repository</div>
+                <div class="doc-meta">GitHub &middot; github.com/jbelottemd-art/BRCAI</div>
+              </a>
+            </li>
+            <li class="doc-item">
+              <svg class="doc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <a href="https://admin.microsoft.com" target="_blank" rel="noopener">
+                <div class="doc-name">Microsoft 365 Admin Center</div>
+                <div class="doc-meta">User management &middot; admin.microsoft.com</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+
+      <!-- Practice Status -->
+      <div class="p-card">
+        <div class="p-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <h3>Practice Status</h3>
+        </div>
+        <div class="p-card-body" style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);">Consulting</div>
+            <span class="status-badge" style="background:rgba(46,160,67,0.15);border-color:rgba(46,160,67,0.3);color:#4caf50;"><span class="status-dot" style="background:#4caf50"></span>Active</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);">Care Delivery</div>
+            <span class="status-badge"><span class="status-dot"></span>Dev · 2027</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);">negplushealth.com</div>
+            <span class="status-badge" style="background:rgba(46,160,67,0.15);border-color:rgba(46,160,67,0.3);color:#4caf50;"><span class="status-dot" style="background:#4caf50"></span>Live</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);">M365 Email</div>
+            <span class="status-badge" style="background:rgba(46,160,67,0.15);border-color:rgba(46,160,67,0.3);color:#4caf50;"><span class="status-dot" style="background:#4caf50"></span>Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div class="p-card">
+        <div class="p-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3>Team</h3>
+          <a href="team.html" class="p-card-link" target="_blank">View</a>
+        </div>
+        <div class="p-card-body" style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:0.85rem;">
+            <div style="width:36px;height:36px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold);">
+              <img src="headshot.jpg" alt="Dr. Belotte" style="width:100%;height:100%;object-fit:cover;object-position:center 12%;">
+            </div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white);">Dr. Jimmy Belotte</div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);">MD, PhD, MBA · FACOG · Founder</div>
+              <a href="mailto:jimmy.belotte@negplushealth.com" style="font-size:0.68rem;color:var(--gold);text-decoration:none;">jimmy.belotte@negplushealth.com</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.85rem;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--navy-mid);flex-shrink:0;border:2px solid rgba(184,134,11,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:var(--gold-lt);">MA</div>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white);">Dr. Mitchell Alexis</div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);">MD, MS · AAFP · Primary Care Lead</div>
+              <a href="mailto:mitchell.alexis@negplushealth.com" style="font-size:0.68rem;color:var(--gold);text-decoration:none;">mitchell.alexis@negplushealth.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="p-card">
+        <div class="p-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <h3>Quick Links</h3>
+        </div>
+        <div class="p-card-body" style="display:flex;flex-direction:column;gap:0.5rem;">
+          <a href="index.html" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid rgba(184,134,11,0.08);transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">negplushealth.com Home</a>
+          <a href="consulting.html" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid rgba(184,134,11,0.08);transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Consulting Services</a>
+          <a href="care-delivery.html" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid rgba(184,134,11,0.08);transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Care Delivery</a>
+          <a href="team.html" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid rgba(184,134,11,0.08);transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Leadership Team</a>
+          <a href="news.html" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;border-bottom:1px solid rgba(184,134,11,0.08);transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">News &amp; Updates</a>
+          <a href="https://outlook.office.com" target="_blank" rel="noopener" style="font-size:0.82rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:0.35rem 0;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Outlook Web App</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /view-portal -->
+
+<div class="portal-footer">NEG Plus PLLC &middot; Internal Portal &middot; Confidential &middot; Authorized Users Only</div>
+
+<script>
+  /* ── CONFIGURATION ── */
+  const CLIENT_ID = '7714eaa8-d9fd-4ad7-988f-9cf7f58a8e88';
+  const TENANT_ID = 'e73a46aa-6d38-44a3-9577-87f623b720b3';
+  const ALLOWED_DOMAIN = 'negplushealth.com';
+
+  const msalConfig = {
+    auth: {
+      clientId:   CLIENT_ID,
+      authority:  'https://login.microsoftonline.com/' + TENANT_ID,
+      redirectUri: window.location.href.split('?')[0].split('#')[0],
+      navigateToLoginRequestUrl: true
+    },
+    cache: {
+      cacheLocation: 'sessionStorage',
+      storeAuthStateInCookie: true
+    }
+  };
+
+  const loginRequest = {
+    scopes: ['User.Read', 'openid', 'profile', 'email']
+  };
+
+  let msalInstance;
+
+  function showError(msg) {
+    const el = document.getElementById('login-error');
+    el.textContent = msg;
+    el.classList.add('visible');
+    document.getElementById('btn-login').disabled = false;
+  }
+
+  function showPortal(account) {
+    const name  = account.name || account.username || 'Team Member';
+    const email = account.username || '';
+    const initials = name.split(' ').map(p => p[0]).join('').slice(0,2).toUpperCase();
+
+    document.getElementById('welcome-name').textContent = 'Welcome, ' + name.split(' ')[0];
+    document.getElementById('welcome-sub').textContent  = email + ' · NEG Plus PLLC';
+    document.getElementById('nav-avatar').textContent   = initials;
+    document.getElementById('nav-username').textContent = name;
+    document.getElementById('nav-user').classList.add('visible');
+    document.getElementById('view-login').style.display = 'none';
+    document.getElementById('view-portal').classList.add('visible');
+  }
+
+  async function init() {
+    try {
+      msalInstance = new msal.PublicClientApplication(msalConfig);
+      await msalInstance.initialize();
+
+      // Handle redirect
+      const response = await msalInstance.handleRedirectPromise();
+      if (response && response.account) {
+        const email = response.account.username || '';
+        if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
+          await msalInstance.logoutRedirect({ postLogoutRedirectUri: window.location.href });
+          return;
+        }
+        showPortal(response.account);
+        return;
+      }
+
+      // Check existing session
+      const accounts = msalInstance.getAllAccounts();
+      if (accounts.length > 0) {
+        const email = accounts[0].username || '';
+        if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
+          showError('Access restricted to @' + ALLOWED_DOMAIN + ' accounts only.');
+          return;
+        }
+        showPortal(accounts[0]);
+        return;
+      }
+    } catch(e) {
+      console.warn('MSAL init:', e);
+    }
+  }
+
+  document.getElementById('btn-login').addEventListener('click', async () => {
+    document.getElementById('btn-login').disabled = true;
+    document.getElementById('login-error').classList.remove('visible');
+    try {
+      if (!msalInstance) {
+        msalInstance = new msal.PublicClientApplication(msalConfig);
+        await msalInstance.initialize();
+      }
+      await msalInstance.loginRedirect(loginRequest);
+    } catch(e) {
+      showError('Sign-in error: ' + (e.message || 'Please try again.'));
+    }
+  });
+
+  document.getElementById('btn-signout').addEventListener('click', async () => {
+    try {
+      await msalInstance.logoutRedirect({ postLogoutRedirectUri: window.location.href });
+    } catch(e) {
+      window.location.reload();
+    }
+  });
+
+  init();
+</script>
+</body>
+</html>
