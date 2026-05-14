@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Consulting & Strategic Advisory | New England Gynecology Plus PLLC</title> <meta name="description" content="NEG Plus PLLC offers physician-led healthcare consulting — including full-lifecycle drug development advisory, medical device development advisory, clinical strategy, financial modeling, and regulatory guidance led by Dr. Jimmy Belotte, MD, PhD, MBA, FACOG."> <link rel="icon" href="favicon.png"> <style> :root {
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Consulting & Strategic Advisory | New England Gynecology Plus PLLC</title> <meta name="description" content="NEG Plus PLLC offers physician-led healthcare consulting — including full-lifecycle drug development advisory, medical device development advisory, clinical strategy, financial modeling, and regulatory guidance led by Dr. Jimmy Belotte, MD, PhD, MBA, FACOG."> <link rel="icon" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0B1F40">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NEG Plus PLLC">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icon-144.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"> <style> :root {
  --black:#111111; --charcoal:#1E1E1E; --gold:#B8860B; --gold-light:#D4A830;
  --gold-pale:#FBF5E0; --gold-mid:#C9A030; --navy:#1B2E59; --navy-mid:#2D4475;
  --navy-light:#778DA9; --cream:#FAF8F3; --cream-dark:#F0EBE0;
@@ -298,5 +309,6 @@
  const fo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fo.unobserve(e.target)}})},{threshold:0.1});
  document.querySelectorAll('.fade-up').forEach(el=>fo.observe(el));
 </script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").then(r=>console.log("SW registered:",r.scope)).catch(e=>console.warn("SW failed:",e));});};</script>
 </body>
 </html>
