@@ -390,7 +390,12 @@
 </nav>
 <div class="mobile-menu" id="mob"> <a href="services.html">Services</a> <a href="consulting.html">Consulting</a> <a href="care-delivery.html">Care Delivery</a> <a href="team.html">Leadership</a> <a href="#about">About</a> <a href="#contact" class="m-cta">Engage Now</a> <a href="#" style="font-size:0.85rem;color:var(--navy);border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem;font-weight:700">&#9679; Patient Portal</a> <a href="https://github.com/jbelottemd-art/BRCAI" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--gray-lt);padding-top:0.25rem"> BRCAI Research Portal</a>
  <a href="portal.html" style="font-size:0.85rem;color:var(--gold);font-weight:700;"> Employee Portal</a></div> <!-- ─── HERO ─── -->
-<section class="hero"> <div class="hero-content"> <div class="hero-eyebrow">New England Gynecology Plus PLLC</div> <h1>Advancing Women's Health<br><em>From Strategy to the Clinic.</em></h1> <p class="hero-sub">A physician-led organization at the convergence of healthcare consulting and care delivery — bringing clinical expertise, financial rigor, and compassionate medicine to women's health across New England and beyond.</p> <div class="hero-pills"> <span class="pill pill-active"> Consulting — Now Active</span> <span class="pill pill-soon"> Care Delivery <span>Launching 2027</span></span> </div> <div class="hero-ctas"> <a href="consulting.html" class="btn btn-gold">Explore Consulting</a> <a href="care-delivery.html" class="btn btn-ghost">Care Delivery Preview</a> </div> </div>
+<section class="hero">
+  <!-- Spline 3D scene — neural mesh / particle field -->
+  <div id="spline-mount" style="position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 1.2s ease;overflow:hidden;pointer-events:none;"></div>
+  <!-- Fallback gradient shown until / if Spline loads -->
+  <div id="spline-fallback" style="position:absolute;inset:0;z-index:0;background:linear-gradient(150deg,#0B1F40 0%,#1B2E59 50%,#0B1F40 100%);pointer-events:none;"></div>
+  <div class="hero-content" style="position:relative;z-index:1;"> <div class="hero-eyebrow">New England Gynecology Plus PLLC</div> <h1>Advancing Women's Health<br><em>From Strategy to the Clinic.</em></h1> <p class="hero-sub">A physician-led organization at the convergence of healthcare consulting and care delivery — bringing clinical expertise, financial rigor, and compassionate medicine to women's health across New England and beyond.</p> <div class="hero-pills"> <span class="pill pill-active"> Consulting — Now Active</span> <span class="pill pill-soon"> Care Delivery <span>Launching 2027</span></span> </div> <div class="hero-ctas"> <a href="consulting.html" class="btn btn-gold">Explore Consulting</a> <a href="care-delivery.html" class="btn btn-ghost">Care Delivery Preview</a> </div> </div>
 </section> <!-- ─── SEGMENT STRIP ─── -->
 <div class="segment-strip"> <div class="segment-strip-inner"> <a href="consulting.html" class="seg-card"> <div class="seg-ico c"></div> <div class="seg-card-text"> <h3>Consulting &amp; Strategic Advisory</h3> <p>Healthcare strategy, financial advisory, innovation, and organizational transformation — led by Dr. Jimmy Belotte.</p> </div> <span class="seg-badge badge-active">Active</span> </a> <a href="care-delivery.html" class="seg-card"> <div class="seg-ico d"></div> <div class="seg-card-text"> <h3>Care Delivery — OBGYN &amp; Primary Care</h3> <p>Women's health, OBGYN, and primary care in structured development. Led by Dr. Belotte &amp; Dr. Alexis.</p> </div> <span class="seg-badge badge-soon">2027</span> </a> </div>
 </div> <!-- ─── ABOUT ─── -->
@@ -433,5 +438,6 @@
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js").then(r=>console.log("SW registered:",r.scope)).catch(e=>console.warn("SW failed:",e));});};</script>
 <script src="ga-events.js"></script>
+<script src="spline.js"></script>
 </body>
 </html>
