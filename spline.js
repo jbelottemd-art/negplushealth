@@ -9,7 +9,7 @@
   // prod.spline.design/scene.splinecode URLs (web component)
   const SCENES = {
     'index.html':          'https://my.spline.design/untitled-8lKheQMiymgRhWTQKmsMmA78/',
-    'consulting.html':     '',
+    'consulting.html':     'https://my.spline.design/untitled-CdwhgMQUhZAi0S9oWHizVMvW/',
     'care-delivery.html':  '',
   };
 
